@@ -1,5 +1,10 @@
 // Conteúdo real do Gabriel (currículo + links verificados). Nada inventado.
 
+// URL canônica do deploy. Mora aqui porque metadata, robots, sitemap e os Link
+// headers precisam todos da mesma base — um lugar só pra trocar no dia que
+// entrar domínio próprio.
+export const siteUrl = "https://gabriel-diogo.vercel.app";
+
 export const perfil = {
   nome: "Gabriel Diogo",
   nomeGigante: "GABRIEL",

@@ -7,6 +7,7 @@ import { MousePlayProvider } from "@/hooks/use-mouse-play";
 import { CursorSpotlight } from "@/components/cursor-spotlight";
 import { SmoothAnchors } from "@/components/smooth-anchors";
 import { ScrollCue } from "@/components/scroll-cue";
+import { contato, perfil, siteUrl } from "@/lib/dados";
 
 // Space Grotesk: títulos, nome gigante e números de métrica.
 const display = Space_Grotesk({
@@ -32,10 +33,35 @@ const mono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const titulo = `${perfil.nome} · ${perfil.cargo}`;
+const descricao =
+  "Desenvolvedor full stack de Goiânia. Construo sistemas de ponta a ponta que pessoas de verdade usam todo dia.";
+
 export const metadata: Metadata = {
-  title: "Gabriel Diogo · Desenvolvedor Full Stack",
-  description:
-    "Desenvolvedor full stack de Goiânia. Construo sistemas de ponta a ponta que pessoas de verdade usam todo dia.",
+  // Sem metadataBase o Next não consegue montar as URLs absolutas que o
+  // Open Graph exige — e a imagem do card sairia quebrada.
+  metadataBase: new URL(siteUrl),
+  title: titulo,
+  description: descricao,
+  alternates: { canonical: "/" },
+  authors: [{ name: perfil.nomeCompleto, url: contato.github }],
+  creator: perfil.nomeCompleto,
+  // O card que WhatsApp, LinkedIn e Slack montam ao receber o link. A imagem
+  // não entra aqui: o Next injeta sozinho a partir de opengraph-image.tsx.
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "/",
+    siteName: titulo,
+    title: titulo,
+    description: descricao,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: titulo,
+    description: descricao,
+  },
+  robots: { index: true, follow: true },
 };
 
 // viewportFit: cover libera as env(safe-area-inset-*) do notch/Dynamic Island.
