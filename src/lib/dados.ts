@@ -226,9 +226,9 @@ export const trajetoria: Trabalho[] = [
   {
     org: "Fazenda Nova · GO (freelancer)",
     cargo: "Desenvolvedor Full Stack",
-    periodo: "mar/2024 · abr/2025",
+    periodo: "mar/2023 · abr/2024",
     feitos: [
-      "Sistema de gestão rural: controle de estoque, financeiro e o valor da arroba do gado em tempo real",
+      "Sistema de gestão rural: controle de estoque, financeiro, vendas e acompanhamento da produção da propriedade (leite, ovos e mais)",
       "Apoio a decisões operacionais e estratégicas da fazenda",
     ],
     nota: "Sistema interno da fazenda, sem página pública.",
