@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
-import { perfil, palavrasHero, chipsPerfil } from "@/lib/dados";
+import { perfil, palavrasHero, chipsPerfil, contato } from "@/lib/dados";
 import { WordRotator } from "@/components/word-rotator";
 import { MOBILE_MOTION } from "@/lib/breakpoints";
 
@@ -184,6 +184,15 @@ export function HeroMobile() {
             className="inline-block rounded-full border border-border bg-bg/70 px-7 py-3.5 font-medium text-text backdrop-blur-sm transition-colors hover:border-accent hover:text-accent"
           >
             Minha história
+          </a>
+          <a
+            href={contato.curriculo}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Currículo em PDF (abre em nova aba)"
+            className="inline-block rounded-full border border-accent/40 bg-bg/70 px-7 py-3.5 font-medium text-accent backdrop-blur-sm transition-colors hover:border-accent hover:bg-bg/90"
+          >
+            Currículo (PDF)
           </a>
         </div>
       </div>

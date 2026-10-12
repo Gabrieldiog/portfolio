@@ -2,6 +2,13 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.4.0] — 2026-10-12 — Currículo
+### Adicionado
+- Currículo em PDF (`/curriculo-gabriel-diogo.pdf`) com links no hero (desktop e celular), na rail, no menu do celular e em destaque no Contato. Abre em nova aba.
+
+### Removido
+- `public/curriculo.png` (imagem de 734 KB que não era usada em lugar nenhum).
+
 ## [0.3.0] — 2026-10-12 — Celular, tablet e telas baixas
 ### Corrigido
 - Celular: a página não fica mais larga que a tela; e-mail e contatos do Contato quebram linha em vez de estourar.

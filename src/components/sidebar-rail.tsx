@@ -219,6 +219,16 @@ export function SidebarRail() {
         </div>
 
         <a
+          href={contato.curriculo}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Currículo em PDF (abre em nova aba)"
+          className="rail-card flex items-center justify-between rounded-2xl border border-accent/40 bg-surface px-4 py-3 text-sm font-medium text-accent transition-colors hover:border-accent hover:bg-accent/10"
+        >
+          Currículo (PDF) <span aria-hidden>↗</span>
+        </a>
+
+        <a
           href="#contato"
           className="rail-card alvo-cta rounded-2xl bg-accent px-5 py-3.5 text-center font-medium text-bg transition-colors hover:bg-accent-hi"
         >
@@ -313,6 +323,15 @@ export function SidebarRail() {
 
           <div className="mt-auto flex flex-col gap-3 pb-[env(safe-area-inset-bottom)]">
             <BotaoEmail />
+            <a
+              href={contato.curriculo}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Currículo em PDF (abre em nova aba)"
+              className="flex items-center justify-between rounded-2xl border border-accent/40 px-5 py-3.5 font-medium text-accent transition-colors hover:border-accent hover:bg-accent/10"
+            >
+              Currículo (PDF) <span aria-hidden>↗</span>
+            </a>
             <a
               href="#contato"
               onClick={fechar}

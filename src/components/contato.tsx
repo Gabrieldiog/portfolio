@@ -53,6 +53,17 @@ export function Contato() {
         <p data-reveal className="mt-2 max-w-xl leading-relaxed text-muted">
           Freelas e projetos também são bem-vindos. Me chama que a gente conversa.
         </p>
+        <div data-reveal className="mt-6">
+          <a
+            href={contato.curriculo}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Baixar currículo em PDF (abre em nova aba)"
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-bg transition-colors hover:bg-accent-hi"
+          >
+            Baixar currículo (PDF) <span aria-hidden>↓</span>
+          </a>
+        </div>
 
         {/* Duas colunas só quando cabem: entre 1024 e 1279px a rail fixa come
             380px e as colunas ficariam estreitas demais. */}
