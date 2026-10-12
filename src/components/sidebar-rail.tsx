@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLenis } from "lenis/react";
 import { contato } from "@/lib/dados";
 import { ScrollTrigger } from "@/lib/gsap";
+import { AvisoCopia, rotuloCopia, useCopiarEmail } from "@/components/copiar-email";
 
 // A rail persistente: no desktop é a coluna fixa à esquerda que se monta durante
 // o voo do hero (os alvos .alvo-* são os pontos de pouso) e acompanha a jornada
@@ -13,7 +14,7 @@ import { ScrollTrigger } from "@/lib/gsap";
 type Item = { href: string; label: string; spy: string; alvo?: string };
 
 const ITENS: Item[] = [
-  { href: "#topo", label: "Home", spy: "" },
+  { href: "#topo", label: "Home", spy: "topo" },
   { href: "#historia", label: "Sobre mim", spy: "historia", alvo: "alvo-menu-sobre" },
   { href: "#projetos", label: "Projetos", spy: "projetos", alvo: "alvo-menu-projetos" },
   { href: "#trajetoria", label: "Trajetória", spy: "trajetoria", alvo: "alvo-menu-trajetoria" },
@@ -85,7 +86,16 @@ export function SidebarRail() {
       return el ? el.getBoundingClientRect().top + window.scrollY : Infinity;
     };
     const inicioSecao = (spy: string): number => {
-      if (spy === "historia") return 0; // o palco é a primeira seção, sempre
+      if (spy === "topo") return 0;
+      if (spy === "historia") {
+        // "Sobre mim" acende quando os capítulos entram em cena (antes disso
+        // é o hero: Home).
+        const palco = ScrollTrigger.getById("palco-sobre");
+        if (palco) return palco.labelToScroll("cap-0") - window.innerHeight * 0.4;
+        const mob = ScrollTrigger.getById("sobre-mobile");
+        if (mob) return mob.start;
+        return topoDe("historia");
+      }
       if (spy === "projetos") {
         const st = ScrollTrigger.getById("projetos-pin");
         return st ? st.start : topoDe("projetos");
@@ -98,7 +108,7 @@ export function SidebarRail() {
     const medir = () => {
       raf = 0;
       const centro = window.scrollY + window.innerHeight * 0.5;
-      let ativo = "historia";
+      let ativo = "topo";
       for (const it of ITENS) {
         if (!it.spy) continue;
         if (inicioSecao(it.spy) <= centro) ativo = it.spy;
@@ -106,7 +116,10 @@ export function SidebarRail() {
       if (ativo === atual) return;
       atual = ativo;
       document.querySelectorAll<HTMLElement>("[data-spy]").forEach((el) => {
-        el.classList.toggle("is-active", el.dataset.spy === ativo);
+        const on = el.dataset.spy === ativo;
+        el.classList.toggle("is-active", on);
+        if (on) el.setAttribute("aria-current", "location");
+        else el.removeAttribute("aria-current");
       });
     };
     const agendar = () => {
@@ -258,10 +271,11 @@ export function SidebarRail() {
         className={`fixed inset-0 z-50 lg:hidden motion-reduce:lg:block ${aberto ? "" : "pointer-events-none"}`}
         aria-hidden={!aberto}
       >
+        {/* Fundo escuro: só alvo de clique. O "Fechar menu" acessível é o ✕. */}
         <button
           type="button"
-          tabIndex={aberto ? 0 : -1}
-          aria-label="Fechar menu"
+          tabIndex={-1}
+          aria-hidden
           onClick={fechar}
           className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
             aberto ? "opacity-100" : "opacity-0"
@@ -346,33 +360,24 @@ export function SidebarRail() {
   );
 }
 
-// E-mail com copiar, no formato pill.
+// E-mail com copiar, no formato pill (mesma lógica do Contato).
 function BotaoEmail() {
-  const [copiado, setCopiado] = useState(false);
+  const { estado, copiar, aviso } = useCopiarEmail();
 
   return (
-    <button
-      type="button"
-      onClick={async () => {
-        try {
-          await navigator.clipboard.writeText(contato.email);
-          setCopiado(true);
-          window.setTimeout(() => setCopiado(false), 2000);
-        } catch {
-          window.location.href = `mailto:${contato.email}`;
-        }
-      }}
-      className="group flex w-full items-center justify-between gap-2 rounded-2xl border border-border bg-surface px-4 py-3 text-left transition-colors hover:border-accent/50"
-      aria-label={`Copiar e-mail ${contato.email}`}
-    >
-      <span className="truncate font-mono text-xs text-muted group-hover:text-text">{contato.email}</span>
-      <span
-        role="status"
-        aria-live="polite"
-        className="shrink-0 font-mono text-[0.6rem] uppercase tracking-[0.12em] text-accent"
+    <>
+      <button
+        type="button"
+        onClick={copiar}
+        className="group flex w-full items-center justify-between gap-2 rounded-2xl border border-border bg-surface px-4 py-3 text-left transition-colors hover:border-accent/50"
+        aria-label={`Copiar e-mail ${contato.email}`}
       >
-        {copiado ? "copiado ✓" : "copiar"}
-      </span>
-    </button>
+        <span className="truncate font-mono text-xs text-muted group-hover:text-text">{contato.email}</span>
+        <span aria-hidden className="shrink-0 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-accent">
+          {rotuloCopia(estado)}
+        </span>
+      </button>
+      <AvisoCopia aviso={aviso} />
+    </>
   );
 }

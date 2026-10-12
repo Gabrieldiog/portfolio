@@ -11,7 +11,7 @@ export default function Home() {
       {/* A rail vive fora das seções (nível da página): fixa no desktop, ela
           persiste por toda a jornada; no celular vira o hambúrguer. */}
       <SidebarRail />
-      <main>
+      <main id="conteudo">
         <PalcoSobre />
         <Projetos />
         <Trajetoria />
