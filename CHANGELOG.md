@@ -2,6 +2,10 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.6.1] — 2026-10-12 — Correção
+### Corrigido
+- Trajetória: período e descrição da Fazenda Nova alinhados ao currículo (mar/2023 – abr/2024; controle de estoque, financeiro, vendas e produção de leite, ovos e mais).
+
 ## [0.6.0] — 2026-10-12 — Conteúdo, SEO e acabamento
 ### Adicionado
 - Dados estruturados `Person` (JSON-LD) para buscadores e IAs.
