@@ -2,6 +2,15 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.7.0] — 2026-10-12 — Grupo BC Energia
+### Adicionado
+- Trajetória: Grupo BC Energia (out/2026 · atual), descrito em termos técnicos, sem expor ferramentas ou infraestrutura internas; 80+ funcionários usam os sistemas.
+
+### Mudado
+- ASSEGO: fev/2025 · out/2026.
+- Alcance total: 480+ pessoas (inclui os 80+ da BC Energia).
+- Contato: "Aberto a novas conversas e freelas." no lugar de "com início imediato".
+
 ## [0.6.2] — 2026-10-12 — Correção
 ### Corrigido
 - Formação: lista de cursos alinhada ao currículo (inclui "React JS 19 e Next.js 15" e "Python para Análise de Dados").
