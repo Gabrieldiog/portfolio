@@ -2,6 +2,17 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.8.0] — 2026-10-12 — Galeria em grade
+### Adicionado
+- Projeto "Loja Eliane Martins" (elianemartins.shop), em destaque.
+
+### Mudado
+- Galeria de projetos em grade com rolagem normal (sem travar a página nem andar para o lado): destaque em largura total, 2 colunas no desktop e 1 no celular.
+- Print em cima e texto embaixo, fora da imagem; número do projeto junto ao título.
+
+### Removido
+- Pin, trilho horizontal e máscara da galeria antiga.
+
 ## [0.7.0] — 2026-10-12 — Grupo BC Energia
 ### Adicionado
 - Trajetória: Grupo BC Energia (out/2026 · atual), descrito em termos técnicos, sem expor ferramentas ou infraestrutura internas; 80+ funcionários usam os sistemas.

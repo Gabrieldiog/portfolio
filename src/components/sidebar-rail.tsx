@@ -96,10 +96,6 @@ export function SidebarRail() {
         if (mob) return mob.start;
         return topoDe("historia");
       }
-      if (spy === "projetos") {
-        const st = ScrollTrigger.getById("projetos-pin");
-        return st ? st.start : topoDe("projetos");
-      }
       return topoDe(spy);
     };
 

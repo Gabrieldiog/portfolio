@@ -28,9 +28,6 @@
   --rail-w: 300px;
   --rail-left: max(2.5rem, calc((100vw - 1500px) / 2 + 2.5rem));
   --rail-inset: calc(5rem + var(--rail-w));
-  /* Borda direita da rail na viewport (a galeria corre na largura toda, fora
-     do container centrado, então precisa da medida absoluta). */
-  --rail-right: calc(var(--rail-left) + var(--rail-w));
 }
 
 /* A rail nunca estoura a tela: em telas baixas a coluna rola por dentro, e aí
@@ -60,18 +57,6 @@
 /* NUNCA "smooth" aqui: briga com o Lenis (anchor links engasgam). */
 html {
   scroll-behavior: auto;
-}
-
-/* Galeria de projetos (desktop com movimento): os cards somem suavemente ao
-   passar pela faixa da rail fixa — nada de conteúdo espiando pelos vãos dela. */
-@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
-  .proj-wrap {
-    -webkit-mask-image: linear-gradient(to right, transparent var(--rail-right), #000 calc(var(--rail-right) + 2.5rem));
-    mask-image: linear-gradient(to right, transparent var(--rail-right), #000 calc(var(--rail-right) + 2.5rem));
-  }
-  .proj-track {
-    padding-left: calc(var(--rail-right) + 2.5rem);
-  }
 }
 
 /* Ícones dos canais de contato: respiram sozinhos, sem precisar do mouse. */

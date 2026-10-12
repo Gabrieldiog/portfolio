@@ -93,6 +93,15 @@ export type Projeto = {
 
 export const projetos: Projeto[] = [
   {
+    id: "eliane",
+    nome: "Loja Eliane Martins",
+    descricao:
+      "Loja de materiais pedagógicos autorais (alfabetização, educação infantil e psicopedagogia), em produção: catálogo com busca sem acento, checkout com PIX, boleto e cartão, webhooks de pagamento com reconciliação de pedidos e painel administrativo. 482 testes automatizados e deploy contínuo.",
+    stack: ["Nuxt 4", "Vue 3", "TypeScript", "PostgreSQL", "Prisma"],
+    link: "https://elianemartins.shop",
+    imagem: "/projetos/eliane-martins.png",
+  },
+  {
     id: "gpol",
     nome: "GPol",
     descricao:
