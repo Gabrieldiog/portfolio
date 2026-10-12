@@ -54,9 +54,11 @@ export function Contato() {
           Freelas e projetos também são bem-vindos. Me chama que a gente conversa.
         </p>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-[1fr_1.1fr] md:items-stretch">
+        {/* Duas colunas só quando cabem: entre 1024 e 1279px a rail fixa come
+            380px e as colunas ficariam estreitas demais. */}
+        <div className="mt-10 grid gap-8 [&>*]:min-w-0 md:grid-cols-[1fr_1.1fr] md:items-stretch motion-safe:lg:grid-cols-1 motion-safe:xl:grid-cols-[1fr_1.1fr]">
           {/* Card de contato: e-mail em destaque + as redes com logo colorida. */}
-          <div data-reveal className="rounded-3xl border border-border bg-surface p-6 md:p-8">
+          <div data-reveal className="@container rounded-3xl border border-border bg-surface p-6 md:p-8">
             <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-faint">
               Me chama por aqui
             </p>
@@ -64,7 +66,9 @@ export function Contato() {
               <CopiarEmail />
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-3">
+            {/* Duas colunas só quando o CARD tem largura pra mostrar o contato
+                inteiro (container query), não pela largura da tela. */}
+            <div className="mt-6 grid grid-cols-1 gap-3 @lg:grid-cols-2">
               {canais.map((c, i) => (
                 <a
                   key={c.id}

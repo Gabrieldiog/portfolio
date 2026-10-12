@@ -18,9 +18,9 @@ export function CopiarEmail() {
           window.location.href = `mailto:${contato.email}`;
         }
       }}
-      className="group inline-flex items-center gap-3 font-mono text-lg text-text transition-colors hover:text-accent md:text-xl"
+      className="group inline-flex max-w-full flex-wrap items-center gap-x-3 gap-y-1 text-left font-mono text-base text-text transition-colors hover:text-accent sm:text-lg md:text-xl"
     >
-      <span>{contato.email}</span>
+      <span className="min-w-0 break-all">{contato.email}</span>
       <span
         role="status"
         aria-live="polite"

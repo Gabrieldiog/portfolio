@@ -11,7 +11,7 @@ export function Formacao() {
 
   return (
     <section ref={root} id="formacao" className="py-20 md:py-28">
-      <div className="mx-auto grid max-w-[1500px] gap-12 px-6 md:grid-cols-[1fr_1fr] md:gap-16 md:px-10 motion-safe:lg:pl-[var(--rail-inset)]">
+      <div className="mx-auto grid max-w-[1500px] gap-12 px-6 md:grid-cols-[1fr_1fr] md:gap-16 md:px-10 motion-safe:lg:grid-cols-1 motion-safe:lg:pl-[var(--rail-inset)] motion-safe:xl:grid-cols-[1fr_1fr]">
         <div>
           <p
             data-reveal
@@ -68,7 +68,7 @@ export function Formacao() {
           </div>
         </div>
 
-        <div className="md:pt-20">
+        <div className="md:pt-20 motion-safe:lg:pt-0 motion-safe:xl:pt-20">
           <p data-reveal className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
             Com o que eu construo
           </p>

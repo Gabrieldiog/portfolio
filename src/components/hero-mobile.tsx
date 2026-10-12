@@ -136,7 +136,7 @@ export function HeroMobile() {
               {chipsPerfil.map((c) => (
                 <li
                   key={c}
-                  className="flex items-center gap-2 whitespace-nowrap font-mono text-[0.58rem] uppercase tracking-[0.05em] text-text/90"
+                  className="flex items-center gap-2 whitespace-nowrap font-mono text-[0.65rem] uppercase tracking-[0.05em] text-text/90"
                 >
                   <span aria-hidden className="h-1 w-1 shrink-0 rounded-full bg-accent" />
                   {c}
@@ -195,7 +195,7 @@ function GlassStat({ valor, rotulo }: { valor: string; rotulo: string }) {
   return (
     <div className="rounded-2xl border border-white/15 bg-bg/55 px-4 py-3 backdrop-blur-md">
       <p className="font-display text-2xl font-semibold text-accent tnum">{valor}</p>
-      <p className="mt-0.5 font-mono text-[0.55rem] uppercase tracking-[0.12em] text-muted">{rotulo}</p>
+      <p className="mt-0.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-muted">{rotulo}</p>
     </div>
   );
 }
