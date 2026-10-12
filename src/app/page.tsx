@@ -1,6 +1,7 @@
 import { SidebarRail } from "@/components/sidebar-rail";
 import { PalcoSobre } from "@/components/palco-sobre";
 import { Projetos } from "@/components/projetos";
+import { Campanhas } from "@/components/campanhas";
 import { Trajetoria } from "@/components/trajetoria";
 import { Formacao } from "@/components/formacao";
 import { Contato } from "@/components/contato";
@@ -14,6 +15,7 @@ export default function Home() {
       <main id="conteudo">
         <PalcoSobre />
         <Projetos />
+        <Campanhas />
         <Trajetoria />
         <Formacao />
       </main>

@@ -17,6 +17,7 @@ const ITENS: Item[] = [
   { href: "#topo", label: "Home", spy: "topo" },
   { href: "#historia", label: "Sobre mim", spy: "historia", alvo: "alvo-menu-sobre" },
   { href: "#projetos", label: "Projetos", spy: "projetos", alvo: "alvo-menu-projetos" },
+  { href: "#campanhas", label: "Campanhas", spy: "campanhas" },
   { href: "#trajetoria", label: "Trajetória", spy: "trajetoria", alvo: "alvo-menu-trajetoria" },
   { href: "#formacao", label: "Formação", spy: "formacao" },
   { href: "#contato", label: "Contato", spy: "contato" },
