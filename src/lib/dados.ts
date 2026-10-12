@@ -19,6 +19,8 @@ export const contato = {
   linkedin: "https://linkedin.com/in/gabrieldiogovsilva",
   whatsapp: "https://wa.me/5562984931303",
   whatsappLabel: "(62) 98493-1303",
+  // Currículo em PDF servido do /public (abre em nova aba no visualizador).
+  curriculo: "/curriculo-gabriel-diogo.pdf",
 };
 
 // Palavras que trocam no título do hero.
