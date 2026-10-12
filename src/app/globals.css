@@ -142,10 +142,20 @@ body {
   color: #0b0b09;
 }
 
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-  border-radius: 2px;
+/* Na camada base: assim uma classe utilitária (ex.: o contorno pra dentro dos
+   cards de projeto) consegue ajustar o foco de um elemento específico. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+/* Seções recebem foco por script (âncoras) só pra leitor de tela/teclado
+   seguirem a tela; o contorno em volta da seção inteira só atrapalharia. */
+section[tabindex="-1"]:focus,
+footer[tabindex="-1"]:focus,
+div[tabindex="-1"]:focus {
+  outline: none;
 }
 
 /* Números que alinham em coluna. */

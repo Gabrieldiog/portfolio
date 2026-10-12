@@ -2,6 +2,18 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.5.0] — 2026-10-12 — Acessibilidade
+### Adicionado
+- Atalho "Pular para o conteúdo" (1º Tab da página).
+- `aria-current` no item ativo do menu; "Home" acende no topo.
+- Galeria de projetos como lista (`ul/li`) e rótulos nos links "Código".
+
+### Corrigido
+- Foco visível nos cards de projeto (contorno para dentro) e card focado sempre trazido para a tela.
+- Foco não quadra mais pílulas e cards (regra global movida para a camada base).
+- "E-mail copiado" anunciado ao leitor de tela; aviso quando a cópia falha; timer limpo ao desmontar.
+- Um único "Fechar menu" acessível no menu do celular.
+
 ## [0.4.0] — 2026-10-12 — Currículo
 ### Adicionado
 - Currículo em PDF (`/curriculo-gabriel-diogo.pdf`) com links no hero (desktop e celular), na rail, no menu do celular e em destaque no Contato. Abre em nova aba.

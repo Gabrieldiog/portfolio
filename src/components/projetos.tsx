@@ -12,7 +12,7 @@ import { projetos, type Projeto } from "@/lib/dados";
 export function Projetos() {
   const root = useRef<HTMLElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLUListElement>(null);
 
   useGSAP(
     () => {
@@ -38,7 +38,7 @@ export function Projetos() {
         gsap.set(wrap, { overflowX: "clip" });
         const distancia = () => Math.max(0, track.scrollWidth - wrap.clientWidth);
 
-        gsap.to(track, {
+        const tween = gsap.to(track, {
           x: () => -distancia(),
           ease: "none",
           scrollTrigger: {
@@ -56,6 +56,23 @@ export function Projetos() {
             invalidateOnRefresh: true,
           },
         });
+
+        // Teclado: o trilho corre por transform, então o navegador não
+        // consegue rolar até um card focado fora da tela. Ao focar um link de
+        // card, rola a PÁGINA até o ponto do pin em que aquele card aparece.
+        const onFocus = (e: FocusEvent) => {
+          const st = tween.scrollTrigger;
+          const card = (e.target as Element).closest("li");
+          if (!st || !card || !track.contains(card)) return;
+          const d = distancia();
+          if (!d) return;
+          const padEsq = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+          const alvoX = Math.min(d, Math.max(0, card.offsetLeft - padEsq));
+          const y = st.start + (alvoX / d) * (st.end - st.start);
+          if (Math.abs(window.scrollY - y) > 4) window.scrollTo(0, y);
+        };
+        track.addEventListener("focusin", onFocus);
+        return () => track.removeEventListener("focusin", onFocus);
       });
 
       return () => mm.revert();
@@ -86,14 +103,17 @@ export function Projetos() {
       </div>
 
       <div ref={wrapRef} className="proj-wrap mt-12 overflow-x-auto pb-4 [scrollbar-width:thin] [@media(max-height:820px)]:mt-6">
-        <div
+        <ul
           ref={trackRef}
+          aria-label="Projetos"
           className="proj-track flex w-max gap-6 px-6 md:px-10"
         >
           {projetos.map((p, i) => (
-            <CardProjeto key={p.id} projeto={p} indice={i} />
+            <li key={p.id} className="shrink-0">
+              <CardProjeto projeto={p} indice={i} />
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
@@ -112,7 +132,9 @@ function CardProjeto({ projeto, indice }: { projeto: Projeto; indice: number }) 
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Abrir ${projeto.nome} no ar`}
-        className="absolute inset-0 z-10 rounded-3xl"
+        // O card corta o que passa da borda (overflow-hidden): o contorno de
+        // foco vai pra DENTRO, senão quem navega por teclado não vê nada.
+        className="absolute inset-0 z-10 rounded-3xl focus-visible:outline-offset-[-4px]"
       />
       <Image
         src={projeto.imagem}
@@ -165,6 +187,7 @@ function CardProjeto({ projeto, indice }: { projeto: Projeto; indice: number }) 
           href={projeto.repo}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Código do ${projeto.nome} no GitHub`}
           className="absolute left-5 top-[4.6rem] z-20 rounded-full border border-white/20 bg-black/40 px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-text backdrop-blur-sm transition-colors hover:border-accent hover:text-accent"
         >
           Código ↗

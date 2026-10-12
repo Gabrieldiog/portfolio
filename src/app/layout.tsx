@@ -81,6 +81,13 @@ export default function RootLayout({
       className={`${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full">
+        {/* Primeiro Tab da página: pula o hero e o menu direto pro conteúdo. */}
+        <a
+          href="#conteudo"
+          className="fixed left-4 top-4 z-[60] -translate-y-24 rounded-full bg-accent px-5 py-3 font-medium text-bg transition-transform focus-visible:translate-y-0"
+        >
+          Pular para o conteúdo
+        </a>
         <LenisProvider>
           <MousePlayProvider>
             <SmoothAnchors />

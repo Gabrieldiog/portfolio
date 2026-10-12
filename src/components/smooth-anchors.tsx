@@ -24,6 +24,8 @@ export function SmoothAnchors() {
 
     const alvoY = (href: string): number | null => {
       if (href === "#topo") return 0;
+      // Skip link: o conteúdo começa no "Sobre mim" (depois do hero).
+      if (href === "#conteudo") return alvoY("#historia");
 
       let el: Element | null = null;
       try {
@@ -51,7 +53,7 @@ export function SmoothAnchors() {
     };
 
     const focar = (href: string) => {
-      const el = href === "#topo" ? document.getElementById("topo") : document.querySelector<HTMLElement>(href);
+      const el = document.querySelector<HTMLElement>(href === "#conteudo" ? "#historia" : href);
       if (!el) return;
       if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1");
       el.focus({ preventScroll: true });
