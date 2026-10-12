@@ -47,11 +47,10 @@ export function Contato() {
           Vamos trabalhar <span className="text-accent">juntos?</span>
         </h2>
         <p data-reveal className="mt-5 max-w-xl text-lg font-medium leading-snug text-text">
-          Disponível pra vaga presencial, remota ou híbrida,{" "}
-          <span className="text-accent">com início imediato.</span>
+          <span className="text-accent">Aberto a novas conversas e freelas.</span>
         </p>
         <p data-reveal className="mt-2 max-w-xl leading-relaxed text-muted">
-          Freelas e projetos também são bem-vindos. Me chama que a gente conversa.
+          Presencial, remoto ou híbrido. Me chama que a gente conversa.
         </p>
         <div data-reveal className="mt-6">
           <a
@@ -126,7 +125,7 @@ export function Contato() {
               Engenharia de Software na UNIGOIÁS.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {["Goiânia, GO", "Presencial · remoto · híbrido", "Início imediato"].map((t) => (
+              {["Goiânia, GO", "Presencial · remoto · híbrido", "Aberto a conversas"].map((t) => (
                 <span
                   key={t}
                   className="rounded-full border border-accent/35 px-4 py-1.5 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-accent"

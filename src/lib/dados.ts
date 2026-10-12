@@ -163,10 +163,11 @@ export const projetos: Projeto[] = [
 ];
 
 // ── Trajetória profissional ─────────────────────────────────────────────────
-// Soma honesta de quem usa o que construí: 55 (gestão ASSEGO) + 40 (GPol)
-// + 10 (clube e pousada) + 100+ (calculadora) + 200+ (totem) = 400+.
+// Soma honesta de quem usa o que construí: 80+ (BC Energia) + 55 (gestão
+// ASSEGO) + 40 (GPol) + 10 (clube e pousada) + 100+ (calculadora) + 200+
+// (totem) = 485 → 480+.
 export const alcanceTotal = {
-  valor: 400,
+  valor: 480,
   sufixo: "+",
   rotulo: "pessoas usam ou já usaram sistemas que construí",
 };
@@ -183,10 +184,25 @@ export type Trabalho = {
 
 export const trajetoria: Trabalho[] = [
   {
+    org: "Grupo BC Energia",
+    site: "https://grupobcenergia.com.br/",
+    cargo: "Desenvolvedor Full Stack",
+    periodo: "out/2026 · atual",
+    // Descrito em termos técnicos de propósito: sem nomes de ferramentas
+    // internas nem detalhes de infraestrutura da empresa.
+    feitos: [
+      "Automação de atendimento: consulta de fatura por unidade consumidora integrada ao data warehouse, com o documento gerado sob demanda (aprovada em code review)",
+      "Migração de uma aplicação interna de plataforma low-code para infraestrutura própria, auto-hospedada",
+      "Integração com o CRM corporativo via API (em implantação)",
+      "Gestão de acesso privilegiado (PAM) à infraestrutura, em homologação",
+    ],
+    metrica: { valor: 80, sufixo: "+", rotulo: "funcionários usam os sistemas" },
+  },
+  {
     org: "ASSEGO",
     site: "https://www.assego.com.br/",
     cargo: "Desenvolvedor Full Stack Júnior",
-    periodo: "fev/2025 · atual",
+    periodo: "fev/2025 · out/2026",
     feitos: [
       "Sistema de gestão administrativa com 14+ módulos (financeiro, jurídico, comercial e mais), substituindo o legado: 55 usuários, 30+ todo dia",
       "GPol, plataforma de inteligência política em tempo real usada por 40 pessoas em Goiás e no Ceará",
