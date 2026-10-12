@@ -17,12 +17,21 @@ export function CursorSpotlight() {
     const yTo = gsap.quickTo(el, "y", { duration: 0.6, ease: "power3" });
 
     const onMove = (e: PointerEvent) => {
+      el.dataset.fora = "0";
       xTo(e.clientX);
       yTo(e.clientY);
     };
+    // Mouse saiu da janela: o brilho não fica parado num canto.
+    const onSair = () => {
+      el.dataset.fora = "1";
+    };
 
     window.addEventListener("pointermove", onMove, { passive: true });
-    return () => window.removeEventListener("pointermove", onMove);
+    document.documentElement.addEventListener("pointerleave", onSair);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      document.documentElement.removeEventListener("pointerleave", onSair);
+    };
   }, { dependencies: [play], revertOnUpdate: true });
 
   if (!play) return null;

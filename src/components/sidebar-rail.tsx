@@ -285,12 +285,12 @@ export function SidebarRail() {
           <div className="flex items-center gap-4 rounded-2xl border border-border bg-surface-2 p-4">
             <div>
               <p className="font-display text-2xl font-semibold text-accent tnum">3+</p>
-              <p className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-muted">anos de código</p>
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted">anos de código</p>
             </div>
             <span aria-hidden className="h-8 w-px bg-border" />
             <div>
               <p className="font-display text-2xl font-semibold text-accent tnum">15+</p>
-              <p className="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-muted">profissionais</p>
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted">profissionais</p>
             </div>
           </div>
 

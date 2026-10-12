@@ -64,14 +64,14 @@ export function Projetos() {
   );
 
   return (
-    <section ref={root} id="projetos" className="overflow-hidden py-20 md:py-24">
+    <section ref={root} id="projetos" className="overflow-hidden py-20 md:py-24 [@media(max-height:820px)]:pt-10">
       <div className="mx-auto w-full max-w-[1500px] px-6 md:px-10 motion-safe:lg:pl-[var(--rail-inset)]">
         <header className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <p className="proj-reveal inline-block rounded-full border border-accent/40 px-4 py-1.5 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-accent">
               Projetos no ar
             </p>
-            <h2 className="proj-reveal mt-5 font-display text-4xl font-bold leading-[1.02] tracking-tight md:text-6xl">
+            <h2 className="proj-reveal mt-5 font-display text-4xl font-bold leading-[1.02] tracking-tight md:text-6xl [@media(max-height:820px)]:mt-3 [@media(max-height:820px)]:md:text-5xl">
               Feito, publicado,
               <br />
               clicável.
@@ -85,10 +85,10 @@ export function Projetos() {
         </header>
       </div>
 
-      <div ref={wrapRef} className="proj-wrap mt-12 overflow-x-auto pb-4 [scrollbar-width:thin]">
+      <div ref={wrapRef} className="proj-wrap mt-12 overflow-x-auto pb-4 [scrollbar-width:thin] [@media(max-height:820px)]:mt-6">
         <div
           ref={trackRef}
-          className="flex w-max snap-x snap-mandatory gap-6 px-6 md:px-10 motion-safe:lg:pl-[var(--rail-inset)]"
+          className="proj-track flex w-max gap-6 px-6 md:px-10"
         >
           {projetos.map((p, i) => (
             <CardProjeto key={p.id} projeto={p} indice={i} />
@@ -99,9 +99,13 @@ export function Projetos() {
   );
 }
 
+// A seção fica pinada numa tela só: o card (3:4) é limitado pela ALTURA livre
+// abaixo do cabeçalho (~23,5rem no celular, ~25rem no desktop; menos em telas
+// baixas, onde o cabeçalho encolhe), senão a base com o nome e a descrição
+// some em notebooks e celulares baixos.
 function CardProjeto({ projeto, indice }: { projeto: Projeto; indice: number }) {
   return (
-    <div className="group relative aspect-[3/4] w-[min(80vw,420px)] shrink-0 snap-start overflow-hidden rounded-3xl border border-border bg-surface">
+    <div className="group relative aspect-[3/4] w-[min(80vw,420px,calc((100svh-23.5rem)*0.75))] shrink-0 overflow-hidden lg:w-[min(420px,calc((100svh-25rem)*0.75))] [@media(max-height:820px)]:w-[min(80vw,420px,calc((100svh-19.5rem)*0.75))] [@media(max-height:820px)]:lg:w-[min(420px,calc((100svh-18.5rem)*0.75))] rounded-3xl border border-border bg-surface">
       {/* O card inteiro leva pro site (link esticado). */}
       <a
         href={projeto.link}
@@ -144,7 +148,7 @@ function CardProjeto({ projeto, indice }: { projeto: Projeto; indice: number }) 
       <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
         <div>
           <h3 className="font-display text-2xl font-bold md:text-3xl">{projeto.nome}</h3>
-          <p className="mt-2 max-w-[19rem] text-[0.95rem] leading-relaxed text-text/85">
+          <p className="mt-2 line-clamp-4 max-w-[19rem] text-[0.95rem] leading-relaxed text-text/85 [@media(max-height:820px)]:line-clamp-3 [@media(max-height:820px)]:text-sm">
             {projeto.descricao}
           </p>
         </div>

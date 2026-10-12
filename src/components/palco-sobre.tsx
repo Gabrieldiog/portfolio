@@ -6,7 +6,7 @@ import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 import { perfil, chipsPerfil, palavrasHero, historia } from "@/lib/dados";
 import { WordRotator } from "@/components/word-rotator";
 import { useMagnetic } from "@/hooks/use-magnetic";
-import { DESKTOP, MOBILE_MOTION } from "@/lib/breakpoints";
+import { DESKTOP, MOBILE_MOTION, STAGE_PLAY } from "@/lib/breakpoints";
 import { HeroMobile } from "@/components/hero-mobile";
 
 const NOME = perfil.nomeGigante; // GABRIEL
@@ -86,8 +86,10 @@ export function PalcoSobre() {
       // ── Mouse-play: holofote, profundidade e parallax ──────────────────
       mm.add(
         {
-          play: "(min-width: 768px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
-          rest: "not ((min-width: 768px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference))",
+          // O nome gigante e as peças com data-depth só existem no desktop
+          // (abaixo de 1024px o hero é o HeroMobile).
+          play: STAGE_PLAY,
+          rest: `not (${STAGE_PLAY})`,
         },
         (context) => {
           const { play } = context.conditions as { play: boolean };
@@ -125,6 +127,7 @@ export function PalcoSobre() {
             const nome = nomeRef.current;
             if (nome && spotX && spotY) {
               const r = nome.getBoundingClientRect();
+              if (!r.width || !r.height) return; // nome fora do layout
               spotX(((e.clientX - r.left) / r.width) * 1000);
               spotY(((e.clientY - r.top) / r.height) * 250);
             }
@@ -471,8 +474,10 @@ export function PalcoSobre() {
           tl.addLabel("cap-0", 0);
           cards.forEach((el, i) => {
             if (i > 0) {
-              tl.to(cards[i - 1], { autoAlpha: 0, y: -44, duration: 0.45, ease: "power1.in" }, i - 0.55);
-              tl.to(el, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power1.out" }, i - 0.45);
+              // Sai um, DEPOIS entra o outro: sobrepor os dois deixava o texto
+              // ilegível se a rolagem parasse no meio da troca.
+              tl.to(cards[i - 1], { autoAlpha: 0, y: -44, duration: 0.22, ease: "power1.in" }, i - 0.5);
+              tl.to(el, { autoAlpha: 1, y: 0, duration: 0.22, ease: "power1.out" }, i - 0.26);
               tl.addLabel(`cap-${i}`, i);
             }
           });
@@ -492,7 +497,9 @@ export function PalcoSobre() {
       {/* ── CAMADA HERO (desktop) ───────────────────────────────────────── */}
       <div ref={heroLayerRef} className="relative hidden w-full pb-16 pt-6 md:pt-10 lg:block">
         <div className="relative mx-auto w-full max-w-[1500px] px-3 md:px-6">
-          <div className="hero-reveal relative mx-auto w-full">
+          {/* Em telas baixas o nome (4:1) encolhe pra o hero inteiro caber na
+              primeira tela: largura máxima = (altura útil restante) × 4. */}
+          <div className="relative mx-auto w-full max-w-[max(36rem,calc((100svh-30rem)*4))]">
             <div ref={nomeVooRef} style={{ transformOrigin: "0% 0%" }}>
             <svg
               ref={nomeRef}
@@ -615,13 +622,13 @@ export function PalcoSobre() {
             </div>
           </nav>
 
-          <div className="hero-reveal relative z-20 mx-auto mt-6 flex max-w-3xl flex-col items-center text-center md:mt-2">
+          <div className="relative z-20 mx-auto mt-6 flex max-w-3xl flex-col items-center text-center md:mt-2">
             <h2 className="hero-solto font-display text-[clamp(2rem,5.2vw,3.9rem)] font-bold leading-[1.03] tracking-tight">
               Pego um problema e<br />
               não paro até{" "}
               <WordRotator words={palavrasHero} className="text-accent" />
             </h2>
-            <div className="mt-7 flex flex-wrap items-center justify-center gap-3.5">
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-3.5 [@media(max-height:820px)]:mt-5">
               <a
                 ref={ctaRef}
                 href="#contato"
@@ -639,7 +646,7 @@ export function PalcoSobre() {
             </div>
           </div>
 
-          <div className="hero-reveal hero-solto relative z-20 mt-12 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div className="hero-solto relative z-20 mt-12 flex flex-col justify-between gap-8 md:flex-row md:items-end [@media(max-height:820px)]:mt-6">
             <div className="max-w-md">
               <p className="text-2xl font-semibold leading-snug">
                 Calmo no processo,<br />
@@ -663,7 +670,7 @@ export function PalcoSobre() {
             </ul>
           </div>
 
-          <div className="hero-reveal relative z-20 mt-10 grid grid-cols-2 gap-3 md:hidden" aria-hidden>
+          <div className="relative z-20 mt-10 grid grid-cols-2 gap-3 md:hidden" aria-hidden>
             {stats.map((s) => (
               <StatCard key={s.rotulo} valor={s.valor} rotulo={s.rotulo} />
             ))}
@@ -673,7 +680,8 @@ export function PalcoSobre() {
 
       {/* ── CAMADA SOBRE (sidebar + capítulos) ──────────────────────────── */}
       <div ref={sobreLayerRef} id="historia" className="relative w-full">
-        <p className="absolute left-6 top-8 z-10 font-mono text-xs uppercase tracking-[0.2em] text-accent lg:hidden">
+        {/* Ao lado do hambúrguer (fixo em 16px, 44px de lado), não embaixo dele. */}
+        <p className="absolute left-[4.5rem] top-[1.85rem] z-10 font-mono text-xs uppercase tracking-[0.2em] text-accent lg:hidden">
           Minha história
         </p>
 
