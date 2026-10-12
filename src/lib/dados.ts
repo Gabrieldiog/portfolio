@@ -102,15 +102,6 @@ export const projetos: Projeto[] = [
     imagem: "/projetos/eliane-martins.png",
   },
   {
-    id: "gpol",
-    nome: "GPol",
-    descricao:
-      "Inteligência política em tempo real: mapa de votos dos 5.570 municípios, dados do TSE e do Censo e escuta social com IA. Em produção com 40 pessoas em 2 estados.",
-    stack: ["Node.js", "TypeScript", "Python", "SQL"],
-    link: "https://sergio.seg.br/gpol-/",
-    imagem: "/projetos/gpol.png",
-  },
-  {
     id: "fox",
     nome: "Fox Finance",
     descricao:
@@ -171,6 +162,93 @@ export const projetos: Projeto[] = [
   },
 ];
 
+// ── Sistemas para campanha e mandato ────────────────────────────────────────
+// Números conferidos: "Minha Cola" mostrava 21.383 acessos no próprio contador
+// da página; 450+ cabos eleitorais cadastrados (informado pelo Gabriel); 246
+// municípios de Goiás; GPol cobre os 5.570 municípios do Brasil.
+export type SistemaPolitico = {
+  nome: string;
+  descricao: string;
+  link?: string; // sem link = sistema interno
+  imagem?: string;
+};
+
+export type FrentePolitica = {
+  titulo: string;
+  resumo: string;
+  sistemas: SistemaPolitico[];
+};
+
+export const campanhas = {
+  numeros: [
+    { valor: 21, sufixo: " mil+", rotulo: "acessos à Minha Cola" },
+    { valor: 450, sufixo: "+", rotulo: "cabos eleitorais cadastrados" },
+    { valor: 246, sufixo: "", rotulo: "municípios de Goiás alcançados" },
+    { valor: 5570, sufixo: "", rotulo: "municípios mapeados no GPol" },
+  ],
+  frentes: [
+    {
+      titulo: "Captação e relacionamento",
+      resumo: "Trazer gente pra rede e não perder ninguém de vista.",
+      sistemas: [
+        {
+          nome: "Rede de apoio",
+          descricao: "Portal de captação: apresenta as causas e as propostas e cadastra apoiadores na rede, com área logada.",
+          link: "https://sergio.seg.br/index.php",
+          imagem: "/politica/rede-de-apoio.jpg",
+        },
+        {
+          nome: "Cadastro de cabos eleitorais",
+          descricao: "Cadastro e organização dos cabos eleitorais da campanha: 450+ inscritos.",
+        },
+        {
+          nome: "CRM da campanha",
+          descricao: "Gestão de contatos, lideranças e apoiadores num lugar só.",
+        },
+      ],
+    },
+    {
+      titulo: "Inteligência eleitoral",
+      resumo: "Entender o eleitorado antes de decidir onde estar.",
+      sistemas: [
+        {
+          nome: "GPol",
+          descricao:
+            "Inteligência política em tempo real: mapa de votos dos 5.570 municípios, dados do TSE e do Censo e escuta social com IA. Em produção com 40 pessoas em 2 estados.",
+          link: "https://sergio.seg.br/gpol-/",
+          imagem: "/projetos/gpol.png",
+        },
+      ],
+    },
+    {
+      titulo: "Mobilização e agenda pública",
+      resumo: "Facilitar o voto e abrir a porta do mandato.",
+      sistemas: [
+        {
+          nome: "Minha Cola",
+          descricao:
+            "O eleitor monta e imprime a cola de votação (4 colinhas por folha). Roda inteira no aparelho: sem login, sem cadastro e sem guardar dado nenhum. 21 mil+ acessos.",
+          link: "https://sergio.seg.br/cola/",
+          imagem: "/politica/minha-cola.jpg",
+        },
+        {
+          nome: "Agenda do mandato",
+          descricao:
+            "Lideranças entram com a conta Google, veem os horários livres e pedem uma reunião; o gabinete confirma ou ajusta.",
+          link: "https://sergio.seg.br/agenda/",
+          imagem: "/politica/agenda.jpg",
+        },
+        {
+          nome: "Site institucional",
+          descricao: "Quem é, propostas, notícias, podcasts e contato da assessoria.",
+          link: "https://subtenentesergio.com.br/",
+          imagem: "/politica/site-institucional.jpg",
+        },
+      ],
+    },
+  ] satisfies FrentePolitica[],
+};
+
 // ── Trajetória profissional ─────────────────────────────────────────────────
 // Soma honesta de quem usa o que construí: 80+ (BC Energia) + 55 (gestão
 // ASSEGO) + 40 (GPol) + 10 (clube e pousada) + 100+ (calculadora) + 200+
@@ -221,7 +299,7 @@ export const trajetoria: Trabalho[] = [
       "Mais de 10 outros sistemas e APIs internas pra operação do dia a dia",
       "Apoio à configuração dos servidores de tudo isso",
     ],
-    nota: "A maioria são sistemas internos: rodam na rede da associação, sem landing page pra visitar (o GPol é a exceção e está nos projetos). A prova: 105+ pessoas usando, 30+ delas todo dia.",
+    nota: "A maioria são sistemas internos: rodam na rede da associação, sem landing page pra visitar (o GPol é a exceção e está na seção de campanhas). A prova: 105+ pessoas usando, 30+ delas todo dia.",
     metrica: { valor: 15, sufixo: "+", rotulo: "sistemas e APIs construídos" },
   },
   {

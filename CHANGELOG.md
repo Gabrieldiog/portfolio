@@ -2,6 +2,13 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.9.0] — 2026-10-12 — Sistemas para política
+### Adicionado
+- Seção "Sistemas para política" (`#campanhas`) e item "Campanhas" no menu: números (21 mil+ acessos à Minha Cola, 450+ cabos eleitorais, 246 municípios de Goiás, 5.570 municípios no GPol) e três frentes — captação e relacionamento, inteligência eleitoral, mobilização e agenda pública — com prints dos sistemas.
+
+### Mudado
+- GPol saiu da galeria de projetos e foi para a nova seção.
+
 ## [0.8.0] — 2026-10-12 — Galeria em grade
 ### Adicionado
 - Projeto "Loja Eliane Martins" (elianemartins.shop), em destaque.
