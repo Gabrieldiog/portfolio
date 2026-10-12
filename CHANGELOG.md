@@ -2,6 +2,10 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.6.2] — 2026-10-12 — Correção
+### Corrigido
+- Formação: lista de cursos alinhada ao currículo (inclui "React JS 19 e Next.js 15" e "Python para Análise de Dados").
+
 ## [0.6.1] — 2026-10-12 — Correção
 ### Corrigido
 - Trajetória: período e descrição da Fazenda Nova alinhados ao currículo (mar/2023 – abr/2024; controle de estoque, financeiro, vendas e produção de leite, ovos e mais).

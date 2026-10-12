@@ -243,8 +243,10 @@ export const formacao = {
     periodo: "2023 · conclusão prevista jun/2027",
   },
   cursos: [
-    "Ciência de Dados para Iniciantes com Projetos Reais (Udemy)",
+    "React JS 19 e Next.js 15 (Udemy)",
     "Web Frontend: Fundamentos HTML, CSS e JS + 10 Projetos (Udemy)",
+    "Python para Análise de Dados (Udemy)",
+    "Ciência de Dados para Iniciantes com Projetos Reais (Udemy)",
   ],
   idiomas: ["Português (nativo)", "Espanhol (intermediário)", "Inglês (básico)"],
 };
