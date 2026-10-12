@@ -72,6 +72,22 @@ export const viewport: Viewport = {
   themeColor: "#0b0b09",
 };
 
+// Dados estruturados (schema.org/Person): buscadores e IAs entendem quem é a
+// pessoa, o cargo, onde mora e quais perfis são dela. O "<" vira \u003c pra
+// nenhum texto conseguir fechar a tag <script> (recomendação da doc do Next).
+const pessoaJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: perfil.nomeCompleto,
+  alternateName: perfil.nome,
+  jobTitle: perfil.cargo,
+  url: siteUrl,
+  email: `mailto:${contato.email}`,
+  address: { "@type": "PostalAddress", addressLocality: "Goiânia", addressRegion: "GO", addressCountry: "BR" },
+  sameAs: [contato.github, contato.linkedin],
+  knowsLanguage: ["pt-BR", "es", "en"],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -81,6 +97,10 @@ export default function RootLayout({
       className={`${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(pessoaJsonLd).replace(/</g, "\\u003c") }}
+        />
         {/* Primeiro Tab da página: pula o hero e o menu direto pro conteúdo. */}
         <a
           href="#conteudo"

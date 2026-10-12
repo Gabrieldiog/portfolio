@@ -157,7 +157,7 @@ function CardProjeto({ projeto, indice }: { projeto: Projeto; indice: number }) 
       </span>
 
       <ul className="absolute right-5 top-5 flex max-w-[60%] flex-wrap justify-end gap-1.5">
-        {projeto.stack.slice(0, 3).map((t) => (
+        {projeto.stack.map((t) => (
           <li
             key={t}
             className="rounded-full border border-white/20 bg-black/40 px-3 py-1 font-mono text-[0.62rem] text-text backdrop-blur-sm"
