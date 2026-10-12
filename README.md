@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio — Gabriel Diogo
 
-## Getting Started
+Portfólio pessoal de **Gabriel Diogo Vieira Silva**, desenvolvedor full stack em Goiânia (GO).
+No ar em **https://gabriel-diogo.vercel.app**.
 
-First, run the development server:
+## Stack
+
+- [Next.js 16](https://nextjs.org) (App Router, páginas estáticas) + React 19 + TypeScript
+- Tailwind CSS v4 (tokens de cor em `src/app/globals.css`)
+- GSAP + ScrollTrigger (animações presas à rolagem) e Lenis (rolagem suave)
+- Fontes: Space Grotesk e JetBrains Mono (`next/font/google`), Satoshi (local)
+
+## Rodando localmente
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run dev     # http://localhost:3000
+npm run lint    # ESLint
+npm run build   # build de produção
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Onde mexer
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| O quê | Arquivo |
+|---|---|
+| Textos, projetos, trajetória, contatos, currículo | `src/lib/dados.ts` |
+| Hero + "Sobre mim" (palco pinado do desktop e do celular) | `src/components/palco-sobre.tsx`, `src/components/hero-mobile.tsx` |
+| Galeria de projetos | `src/components/projetos.tsx` (prints em `public/projetos/`, 3:4) |
+| Menu lateral (desktop) e menu do celular | `src/components/sidebar-rail.tsx` |
+| Rolagem suave e âncoras | `src/components/lenis-provider.tsx`, `src/components/smooth-anchors.tsx` |
+| SEO (metadata, JSON-LD, Open Graph, sitemap, robots) | `src/app/layout.tsx`, `src/app/opengraph-image.tsx`, `src/app/sitemap.ts`, `src/app/robots.ts` |
+| Currículo em PDF | `public/curriculo-gabriel-diogo.pdf` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Processo
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Cada mudança média ou grande tem uma spec em `docs/specs/`.
+- As versões e o que mudou em cada uma ficam no [`CHANGELOG.md`](./CHANGELOG.md).
+- Deploy automático na Vercel a cada merge na `main` (cada PR ganha um link de preview).

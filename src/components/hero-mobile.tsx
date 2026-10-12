@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
-import { perfil, palavrasHero, chipsPerfil, contato } from "@/lib/dados";
+import { perfil, palavrasHero, chipsPerfil, contato, numerosPerfil } from "@/lib/dados";
 import { WordRotator } from "@/components/word-rotator";
 import { MOBILE_MOTION } from "@/lib/breakpoints";
 
@@ -13,10 +13,12 @@ import { MOBILE_MOTION } from "@/lib/breakpoints";
 // grid de uma célula (filhos em grid-area 1/1), empilhados por z-index.
 const NOME = perfil.nomeGigante; // GABRIEL
 
-const stats = [
-  { valor: "3+", rotulo: "anos de código" },
-  { valor: "15+", rotulo: "sistemas profissionais" },
-];
+// A MESMA regra de tamanhos nas três <Image> da foto (hero do celular e as
+// duas camadas do desktop): assim o navegador escolhe a mesma variante e baixa
+// a foto UMA vez só, em vez de uma por camada. A foto nunca passa de 430px.
+export const SIZES_FOTO = "(max-width: 1023px) min(90vw, 430px), 430px";
+
+const stats = numerosPerfil;
 
 export function HeroMobile() {
   const root = useRef<HTMLDivElement>(null);
@@ -102,10 +104,6 @@ export function HeroMobile() {
 
   return (
     <div ref={root} className="block lg:hidden">
-      <h1 className="sr-only">
-        {perfil.nomeCompleto}, {perfil.cargo} em {perfil.local}
-      </h1>
-
       {/* Palco 100svh: nome atrás (z0) / foto no centro (z10) / cards + chips (z20). */}
       <div className="hm-palco relative grid min-h-[100svh] place-items-center overflow-clip pt-[max(1.5rem,env(safe-area-inset-top))] [&>*]:[grid-area:1/1]">
         <p
@@ -122,8 +120,8 @@ export function HeroMobile() {
             src="/fotominha.png"
             alt=""
             fill
-            priority
-            sizes="90vw"
+            preload
+            sizes={SIZES_FOTO}
             className="object-cover object-top [filter:drop-shadow(0_26px_40px_rgba(0,0,0,0.55))] [mask-image:linear-gradient(to_bottom,#000_74%,transparent)]"
             onLoad={() => ScrollTrigger.refresh()}
           />

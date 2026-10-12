@@ -23,6 +23,12 @@ export const contato = {
   curriculo: "/curriculo-gabriel-diogo.pdf",
 };
 
+// Os dois números do perfil (hero, rail e menu usam os MESMOS rótulos).
+export const numerosPerfil = [
+  { valor: "3+", rotulo: "anos de experiência" },
+  { valor: "15+", rotulo: "sistemas profissionais" },
+];
+
 // Palavras que trocam no título do hero.
 export const palavrasHero = ["resolver", "entregar", "simplificar", "automatizar"];
 
@@ -40,7 +46,7 @@ export const historia: Capitulo[] = [
     marcador: "Fazenda",
     titulo: "A curiosidade nasceu no interior",
     texto:
-      "Cresci em fazenda, encantado com o que funcionava sozinho: a luz do sensor de presença que acendia ao passar, o irrigador que ligava na hora certa pelo timer, a boia que enchia a caixa d'água e desligava a bomba, o portão que abria com um botão. Eu precisava entender como aquilo funcionava.",
+      "Cresci numa fazenda, encantado com o que funcionava sozinho: a luz do sensor de presença que acendia ao passar, o irrigador que ligava na hora certa pelo timer, a boia que enchia a caixa d'água e desligava a bomba, o portão que abria com um botão. Eu precisava entender como aquilo funcionava.",
   },
   {
     marcador: "Jogos",
@@ -64,7 +70,7 @@ export const historia: Capitulo[] = [
     marcador: "Confiança",
     titulo: "O dev que soluciona, e em quem confiam",
     texto:
-      "Virei a pessoa que chamam quando tem problema pra resolver. Os diretores confiaram na minha autonomia e, ainda júnior, dirigi dois projetos do início ao fim. Entender a dor de quem usa e resolver virou o meu padrão.",
+      "Virei a pessoa que chamam quando há um problema pra resolver. Os diretores confiaram na minha autonomia e, ainda júnior, dirigi dois projetos do início ao fim. Entender a dor de quem usa e resolver virou o meu padrão.",
   },
   {
     marcador: "Hoje",
@@ -103,7 +109,7 @@ export const projetos: Projeto[] = [
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Drizzle"],
     link: "https://fox-finance.vercel.app",
     repo: "https://github.com/Gabrieldiog/FOX-finance",
-    imagem: "/projetos/fox-print.png",
+    imagem: "/projetos/fox-finance.png",
   },
   {
     id: "calculadora",
@@ -138,7 +144,7 @@ export const projetos: Projeto[] = [
     id: "maiormenor",
     nome: "Maior ou Menor?",
     descricao:
-      "Jogo de adivinhação com dados públicos reais do Brasil e multijogador 1v1 por WebSocket. O motor é agnóstico: cada baralho é um JSON.",
+      "Jogo de adivinhação com dados públicos reais do Brasil e multijogador 1v1 por WebSocket. O motor serve pra qualquer tema: cada baralho é só um arquivo JSON.",
     stack: ["Next.js", "TypeScript", "WebSocket"],
     link: "https://game-numbers.vercel.app",
     repo: "https://github.com/Gabrieldiog/game-numbers",
@@ -148,7 +154,7 @@ export const projetos: Projeto[] = [
     id: "pharmacy",
     nome: "Pharmacy Price",
     descricao:
-      "Comparador de preços de medicamentos: o teto legal (CMED) lado a lado com o preço real praticado nas farmácias.",
+      "Comparador de preços de medicamentos: o preço máximo permitido pela CMED (a câmara que regula o mercado de remédios) lado a lado com o preço real praticado nas farmácias.",
     stack: ["TypeScript", "Scraping", "APIs"],
     link: "https://pharmacy-price.netlify.app",
     repo: "https://github.com/Gabrieldiog/Pharmacy-price",
@@ -160,7 +166,8 @@ export const projetos: Projeto[] = [
 // Soma honesta de quem usa o que construí: 55 (gestão ASSEGO) + 40 (GPol)
 // + 10 (clube e pousada) + 100+ (calculadora) + 200+ (totem) = 400+.
 export const alcanceTotal = {
-  valor: "400+",
+  valor: 400,
+  sufixo: "+",
   rotulo: "pessoas usam ou já usaram sistemas que construí",
 };
 
@@ -189,7 +196,7 @@ export const trajetoria: Trabalho[] = [
       "Mais de 10 outros sistemas e APIs internas pra operação do dia a dia",
       "Apoio à configuração dos servidores de tudo isso",
     ],
-    nota: "Sistemas internos: rodam na rede da associação, sem landing page pra visitar. A prova: 105+ pessoas usando, 30+ delas todo dia.",
+    nota: "A maioria são sistemas internos: rodam na rede da associação, sem landing page pra visitar (o GPol é a exceção e está nos projetos). A prova: 105+ pessoas usando, 30+ delas todo dia.",
     metrica: { valor: 15, sufixo: "+", rotulo: "sistemas e APIs construídos" },
   },
   {
@@ -202,7 +209,7 @@ export const trajetoria: Trabalho[] = [
       "Modelagem completa da base de dados do acervo histórico",
       "Consulta a jornais históricos sobre Goiás e Brasília, usada por 200+ visitantes",
     ],
-    nota: "É um totem físico: o link é ir até ele em Brasília.",
+    nota: "É um totem físico: pra usar, só indo até ele em Brasília.",
     metrica: { valor: 200, sufixo: "+", rotulo: "visitantes no totem" },
   },
   {

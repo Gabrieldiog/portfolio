@@ -11,7 +11,5 @@ export const NO_REDUCE = "(prefers-reduced-motion: no-preference)";
 export const STAGE = "(min-width: 1024px) and (prefers-reduced-motion: no-preference)";
 // Revelações do celular: touch/estreito com movimento liberado.
 export const MOBILE_MOTION = "(max-width: 1023px) and (prefers-reduced-motion: no-preference)";
-// Mouse de verdade (holofote, parallax): independe da largura do palco.
-export const PLAY = "(min-width: 768px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)";
 // Holofote/parallax do hero do desktop: só existe a partir de 1024px.
 export const STAGE_PLAY = "(min-width: 1024px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)";

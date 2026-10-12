@@ -2,6 +2,26 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.6.0] — 2026-10-12 — Conteúdo, SEO e acabamento
+### Adicionado
+- Dados estruturados `Person` (JSON-LD) para buscadores e IAs.
+- Ícone próprio (monograma "G" dourado) e ícone para a tela inicial do iPhone.
+- README do projeto.
+
+### Mudado
+- Números do perfil com o mesmo rótulo em todo o site ("anos de experiência", "sistemas profissionais").
+- Textos: "mais de 400 pessoas" no resumo, nota da ASSEGO citando o GPol como exceção, CMED explicada, ajustes de português.
+- Marca "GABRIEL" sem o ®.
+- Cards de projeto mostram todas as tags.
+- Print do Fox Finance refeito na vertical (sem as abas do navegador).
+
+### Corrigido
+- Um só `<h1>` na página.
+- Foto de perfil baixada uma vez só (antes, duas no desktop); `priority` trocado por `preload` (Next 16).
+
+### Removido
+- Favicon e SVGs padrão do create-next-app; código morto (grade de stats invisível, constante `PLAY`).
+
 ## [0.5.0] — 2026-10-12 — Acessibilidade
 ### Adicionado
 - Atalho "Pular para o conteúdo" (1º Tab da página).

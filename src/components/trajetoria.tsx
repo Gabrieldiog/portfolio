@@ -56,7 +56,7 @@ export function Trajetoria() {
 
           <div className="traj-reveal mt-8 rounded-3xl border border-accent/30 bg-surface p-7">
             <p className="font-display text-6xl font-bold leading-none text-accent-hi tnum">
-              <Contador valor={400} sufixo="+" />
+              <Contador valor={alcanceTotal.valor} sufixo={alcanceTotal.sufixo} />
             </p>
             <p className="mt-3 text-sm leading-relaxed text-text">{alcanceTotal.rotulo}</p>
           </div>

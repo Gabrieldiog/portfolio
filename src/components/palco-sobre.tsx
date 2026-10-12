@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
-import { perfil, chipsPerfil, palavrasHero, historia, contato } from "@/lib/dados";
+import { perfil, chipsPerfil, palavrasHero, historia, contato, numerosPerfil } from "@/lib/dados";
 import { WordRotator } from "@/components/word-rotator";
 import { useMagnetic } from "@/hooks/use-magnetic";
 import { DESKTOP, MOBILE_MOTION, STAGE_PLAY } from "@/lib/breakpoints";
-import { HeroMobile } from "@/components/hero-mobile";
+import { HeroMobile, SIZES_FOTO } from "@/components/hero-mobile";
 
 const NOME = perfil.nomeGigante; // GABRIEL
 const APELIDO = "DIOGO";
@@ -16,10 +16,7 @@ const APELIDO = "DIOGO";
 const OURO_BASE = "#c99a12";
 const OURO_ACESO = "#ffdd66";
 
-const stats = [
-  { valor: "3+", rotulo: "anos de experiência" },
-  { valor: "15+", rotulo: "sistemas profissionais" },
-];
+const stats = numerosPerfil;
 
 // Quanto do scroll (em viewports) cada fase ocupa, na escala da timeline.
 const EXIT = 1.5; // voo + montagem da sidebar + chegada do "Sobre mim"
@@ -491,6 +488,10 @@ export function PalcoSobre() {
 
   return (
     <section ref={root} id="topo" className="relative w-full overflow-hidden">
+      {/* O ÚNICO h1 da página (vale pro hero do desktop e do celular). */}
+      <h1 className="sr-only">
+        {perfil.nomeCompleto}, {perfil.cargo} em {perfil.local}
+      </h1>
       {/* No celular, um hero próprio com a pessoa no centro (desktop fica hidden). */}
       <HeroMobile />
 
@@ -565,8 +566,8 @@ export function PalcoSobre() {
                     src="/fotominha.png"
                     alt=""
                     fill
-                    priority
-                    sizes="(max-width: 768px) 60vw, 44vw"
+                    preload
+                    sizes={SIZES_FOTO}
                     className="object-contain"
                     onLoad={() => ScrollTrigger.refresh()}
                   />
@@ -576,7 +577,7 @@ export function PalcoSobre() {
                     src="/fotominha.png"
                     alt=""
                     fill
-                    sizes="(max-width: 768px) 60vw, 44vw"
+                    sizes={SIZES_FOTO}
                     className="object-contain"
                   />
                 </div>
@@ -584,9 +585,6 @@ export function PalcoSobre() {
               </div>
             </div>
 
-            <h1 className="sr-only">
-              {perfil.nomeCompleto}, desenvolvedor full stack em {perfil.local}
-            </h1>
             <p className="sr-only">{stats.map((s) => `${s.valor} ${s.rotulo}`).join(". ")}.</p>
 
             <div className="pointer-events-none absolute inset-0 z-20 hidden md:block" aria-hidden>
@@ -679,11 +677,6 @@ export function PalcoSobre() {
             </ul>
           </div>
 
-          <div className="relative z-20 mt-10 grid grid-cols-2 gap-3 md:hidden" aria-hidden>
-            {stats.map((s) => (
-              <StatCard key={s.rotulo} valor={s.valor} rotulo={s.rotulo} />
-            ))}
-          </div>
         </div>
       </div>
 

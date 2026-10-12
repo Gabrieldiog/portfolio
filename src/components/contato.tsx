@@ -121,7 +121,7 @@ export function Contato() {
               passando por banco, testes e deploy em Linux.
             </p>
             <p className="mt-3 leading-relaxed text-muted">
-              Já entreguei sistemas usados por centenas de pessoas, de plataforma
+              Já entreguei sistemas usados por mais de 400 pessoas, de plataforma
               de dados em tempo real a totem interativo em Brasília. Cursando
               Engenharia de Software na UNIGOIÁS.
             </p>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLenis } from "lenis/react";
-import { contato } from "@/lib/dados";
+import { contato, numerosPerfil } from "@/lib/dados";
 import { ScrollTrigger } from "@/lib/gsap";
 import { AvisoCopia, rotuloCopia, useCopiarEmail } from "@/components/copiar-email";
 
@@ -72,7 +72,7 @@ export function SidebarRail() {
   useEffect(() => {
     const onMorph = (e: Event) => {
       const texto = (e as CustomEvent<string>).detail;
-      if (logoRef.current && texto) logoRef.current.textContent = `${texto}®`;
+      if (logoRef.current && texto) logoRef.current.textContent = texto;
     };
     window.addEventListener("nome-morph", onMorph);
     return () => window.removeEventListener("nome-morph", onMorph);
@@ -192,7 +192,7 @@ export function SidebarRail() {
             ref={logoRef}
             className="alvo-logo inline-block rounded-lg bg-accent px-3 py-1 font-display text-sm font-bold text-bg"
           >
-            GABRIEL®
+            GABRIEL
           </span>
           <p className="mt-3 text-sm leading-relaxed text-muted">
             Sistemas de ponta a ponta, com calma e teimosia na medida.
@@ -200,15 +200,7 @@ export function SidebarRail() {
         </div>
 
         <div className="rail-card alvo-stats flex items-center gap-4 rounded-2xl border border-border bg-surface p-5">
-          <div>
-            <p className="font-display text-2xl font-semibold text-accent tnum">3+</p>
-            <p className="font-mono text-[0.6rem] uppercase tracking-[0.12em] text-muted">anos de código</p>
-          </div>
-          <span aria-hidden className="h-8 w-px bg-border" />
-          <div>
-            <p className="font-display text-2xl font-semibold text-accent tnum">15+</p>
-            <p className="font-mono text-[0.6rem] uppercase tracking-[0.12em] text-muted">sistemas profissionais</p>
-          </div>
+          <Numeros />
         </div>
 
         <nav className="rail-card rounded-2xl border border-border bg-surface p-3" aria-label="Seções">
@@ -294,7 +286,7 @@ export function SidebarRail() {
         >
           <div className="flex items-center justify-between">
             <span className="inline-block rounded-lg bg-accent px-3 py-1 font-display text-sm font-bold text-bg">
-              GABRIEL®
+              GABRIEL
             </span>
             <button
               type="button"
@@ -307,15 +299,7 @@ export function SidebarRail() {
           </div>
 
           <div className="flex items-center gap-4 rounded-2xl border border-border bg-surface-2 p-4">
-            <div>
-              <p className="font-display text-2xl font-semibold text-accent tnum">3+</p>
-              <p className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted">anos de código</p>
-            </div>
-            <span aria-hidden className="h-8 w-px bg-border" />
-            <div>
-              <p className="font-display text-2xl font-semibold text-accent tnum">15+</p>
-              <p className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted">profissionais</p>
-            </div>
+            <Numeros />
           </div>
 
           <nav aria-label="Seções">
@@ -355,6 +339,24 @@ export function SidebarRail() {
             </a>
           </div>
         </div>
+      </div>
+    </>
+  );
+}
+
+// Os dois números do perfil, lado a lado (rail e menu).
+function Numeros() {
+  const [a, b] = numerosPerfil;
+  return (
+    <>
+      <div>
+        <p className="font-display text-2xl font-semibold text-accent tnum">{a.valor}</p>
+        <p className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted">{a.rotulo}</p>
+      </div>
+      <span aria-hidden className="h-8 w-px bg-border" />
+      <div>
+        <p className="font-display text-2xl font-semibold text-accent tnum">{b.valor}</p>
+        <p className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted">{b.rotulo}</p>
       </div>
     </>
   );
