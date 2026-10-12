@@ -32,9 +32,15 @@ function LenisGsapSync() {
   return null;
 }
 
-// Scroll amanteigado. Um único relógio: o gsap.ticker dirige o Lenis
-// (autoRaf desligado). Com prefers-reduced-motion o site fica no scroll
-// nativo (a troca é pré-pintura, sem flash).
+// Scroll suave, mas responsivo. Um único relógio: o gsap.ticker dirige o Lenis
+// (autoRaf desligado).
+//
+// Só `lerp` (sem `duration`): com duration definido o Lenis troca pro modo por
+// tempo e cada giro da roda vira um deslize fixo de ~1,2s, ignorando o lerp —
+// era isso que deixava a rolagem "flutuando".
+//
+// Com prefers-reduced-motion a roda volta a ser nativa (smoothWheel: false),
+// mas a ÁRVORE continua a mesma: trocar o wrapper desmontaria a página inteira.
 export function LenisProvider({ children }: { children: ReactNode }) {
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -51,10 +57,19 @@ export function LenisProvider({ children }: { children: ReactNode }) {
     document.fonts.ready.then(() => ScrollTrigger.refresh());
   }, []);
 
-  if (reducedMotion) return <>{children}</>;
-
   return (
-    <ReactLenis root options={{ autoRaf: false, lerp: 0.1, duration: 1.2, syncTouch: false }}>
+    <ReactLenis
+      root
+      options={{
+        autoRaf: false,
+        lerp: 0.14,
+        smoothWheel: !reducedMotion,
+        syncTouch: false,
+        // A rail e o drawer rolam por dentro em telas baixas: a roda sobre
+        // eles rola ELES, não a página.
+        allowNestedScroll: true,
+      }}
+    >
       <LenisGsapSync />
       {children}
     </ReactLenis>

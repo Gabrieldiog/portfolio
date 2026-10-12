@@ -21,8 +21,12 @@ const stats = [
   { valor: "15+", rotulo: "sistemas profissionais" },
 ];
 
-// Quanto do scroll (em viewports) cada fase ocupa.
+// Quanto do scroll (em viewports) cada fase ocupa, na escala da timeline.
 const EXIT = 1.5; // voo + montagem da sidebar + chegada do "Sobre mim"
+// Cada unidade da timeline vale ESTA fração de uma tela de rolagem. Antes era
+// 1 tela por unidade (6,5 telas presas no palco); agora o palco inteiro cabe
+// em ~4 telas sem mexer no ritmo relativo das animações.
+const TELA_POR_UNIDADE = 0.62;
 
 // UM PALCO SÓ: hero, sidebar e capítulos vivem na MESMA seção pinada, com
 // uma timeline única. As peças do hero voam, a sidebar REAL se monta em cena
@@ -214,6 +218,9 @@ export function PalcoSobre() {
           gsap.set(cards, { position: "absolute", inset: 0, margin: "auto" });
           gsap.set(cards, { autoAlpha: 0, x: -110, y: 90 });
 
+          // Progresso (0→1) de cada capítulo, pro ímã da timeline.
+          const capsSnap = cards.map((_, i) => (EXIT + i) / TOTAL);
+
           const alvoDe = (sel: string) => rail.querySelector<HTMLElement>(sel);
           const voo = (fonte: Element | null, sel: string, comEscala = false) => ({
             x: () => {
@@ -250,14 +257,21 @@ export function PalcoSobre() {
               id: "palco-sobre",
               trigger: root.current,
               start: "top top",
-              end: () => `+=${TOTAL * window.innerHeight}`,
-              scrub: 0.8,
+              end: () => `+=${TOTAL * TELA_POR_UNIDADE * window.innerHeight}`,
+              scrub: 0.35,
               pin: true,
               anticipatePin: 1,
               fastScrollEnd: true,
               preventOverlaps: true,
               invalidateOnRefresh: true,
-              snap: { snapTo: "labels", duration: 0.4, ease: "power1.inOut" },
+              // Ímã só entre os capítulos: no voo do hero ele puxava a página
+              // de volta pro topo depois de um giro curto da roda.
+              snap: {
+                snapTo: (p: number) => (p < EXIT / TOTAL ? p : gsap.utils.snap(capsSnap, p)),
+                duration: { min: 0.15, max: 0.35 },
+                delay: 0.08,
+                ease: "power1.inOut",
+              },
             },
           });
 
@@ -402,7 +416,7 @@ export function PalcoSobre() {
 
       // ── Celular: os capítulos ganham o MESMO efeito do desktop. A seção PINA
       // (você fica parado) e os capítulos passam um a um enquanto você rola, com
-      // a linha do tempo desenhando. Só transform/opacity + scrub 0.6 pra ficar
+      // a linha do tempo desenhando. Só transform/opacity + scrub curto pra ficar
       // liso no touch (o ignoreMobileResize já mata o pulo da barra do iOS).
       mm.add(MOBILE_MOTION, () => {
           const sobreLayer = sobreLayerRef.current;
@@ -431,8 +445,8 @@ export function PalcoSobre() {
               id: "sobre-mobile",
               trigger: sobreLayer,
               start: "top top",
-              end: () => `+=${(caps - 0.5) * window.innerHeight}`,
-              scrub: 0.6,
+              end: () => `+=${(caps - 0.5) * TELA_POR_UNIDADE * window.innerHeight}`,
+              scrub: 0.35,
               pin: true,
               anticipatePin: 1,
               fastScrollEnd: true,

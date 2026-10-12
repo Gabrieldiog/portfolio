@@ -62,7 +62,7 @@ export function HeroMobile() {
           trigger: palco,
           start: "top top",
           end,
-          scrub: 0.6,
+          scrub: 0.35,
           invalidateOnRefresh: true,
         });
         gsap.to(".hm-nome", { yPercent: -24, ease: "none", scrollTrigger: st("bottom top") });

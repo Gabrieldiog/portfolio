@@ -45,14 +45,15 @@ export function Projetos() {
             id: "projetos-pin",
             trigger: root.current,
             start: "top top",
-            end: () => `+=${distancia()}`,
-            scrub: 0.6,
+            // O trilho anda mais rápido que a rolagem (1px de roda = ~1,4px de
+            // trilho): a galeria não vira uma segunda parede de rolagem.
+            end: () => `+=${distancia() * 0.7}`,
+            scrub: 0.35,
             pin: true,
             anticipatePin: 1,
             fastScrollEnd: true,
             preventOverlaps: true,
             invalidateOnRefresh: true,
-            refreshPriority: -1,
           },
         });
       });
