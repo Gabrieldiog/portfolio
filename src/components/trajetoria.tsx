@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { trajetoria, alcanceTotal, alcancePublico, type Trabalho } from "@/lib/dados";
@@ -110,6 +111,18 @@ function CardTrabalho({ trabalho }: { trabalho: Trabalho }) {
       ref={tiltRef}
       className="traj-card group rounded-3xl border border-border bg-surface p-7 transition-colors hover:border-accent/50 md:p-9"
     >
+      {/* Retrato do site da casa (ou do sistema público que construí lá). */}
+      {trabalho.imagem && (
+        <div className="relative -mx-7 -mt-7 mb-6 aspect-[16/7] overflow-hidden rounded-t-3xl border-b border-border bg-surface-2 md:-mx-9 md:-mt-9 md:mb-7">
+          <Image
+            src={trabalho.imagem}
+            alt={`Site ${trabalho.org}`}
+            fill
+            sizes="(max-width: 767px) 100vw, 760px"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </div>
+      )}
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <h3 className="font-display text-2xl font-semibold transition-colors group-hover:text-accent md:text-3xl">

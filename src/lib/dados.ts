@@ -93,15 +93,6 @@ export type Projeto = {
 
 export const projetos: Projeto[] = [
   {
-    id: "eliane",
-    nome: "Loja Eliane Martins",
-    descricao:
-      "Loja de materiais pedagógicos autorais (alfabetização, educação infantil e psicopedagogia), em produção: catálogo com busca sem acento, checkout com PIX, boleto e cartão, webhooks de pagamento com reconciliação de pedidos e painel administrativo. 482 testes automatizados e deploy contínuo.",
-    stack: ["Nuxt 4", "Vue 3", "TypeScript", "PostgreSQL", "Prisma"],
-    link: "https://elianemartins.shop",
-    imagem: "/projetos/eliane-martins.png",
-  },
-  {
     id: "fox",
     nome: "Fox Finance",
     descricao:
@@ -110,15 +101,6 @@ export const projetos: Projeto[] = [
     link: "https://fox-finance.vercel.app",
     repo: "https://github.com/Gabrieldiog/FOX-finance",
     imagem: "/projetos/fox-finance.png",
-  },
-  {
-    id: "calculadora",
-    nome: "Calculadora do Creator",
-    descricao:
-      "A calculadora que ajuda criadores de conteúdo a precificar e planejar serviços, feita com o Conteúdo Club. 292 clientes cadastrados em produção.",
-    stack: ["Vue.js", "Node.js", "SQL"],
-    link: "https://calculadoradocreator.com",
-    imagem: "/projetos/calculadora.png",
   },
   {
     id: "balcao",
@@ -283,11 +265,13 @@ export type Trabalho = {
   feitos: string[];
   nota?: string;
   metrica?: { valor: number; sufixo: string; rotulo: string };
+  imagem?: string; // retrato do site (ou do sistema público) da casa
 };
 
 export const trajetoria: Trabalho[] = [
   {
     org: "Grupo BC Energia",
+    imagem: "/trajetoria/bc.jpg",
     site: "https://grupobcenergia.com.br/",
     cargo: "Desenvolvedor Full Stack",
     periodo: "out/2026 · atual",
@@ -304,8 +288,9 @@ export const trajetoria: Trabalho[] = [
   },
   {
     org: "Loja Eliane Martins",
+    imagem: "/projetos/eliane-martins.png",
     site: "https://elianemartins.shop",
-    cargo: "Desenvolvedor Full Stack · freelancer",
+    cargo: "Desenvolvedor Full Stack",
     periodo: "2026",
     feitos: [
       "Loja virtual de materiais pedagógicos, do catálogo ao painel administrativo, no ar e com clientes comprando",
@@ -315,6 +300,7 @@ export const trajetoria: Trabalho[] = [
   },
   {
     org: "ASSEGO",
+    imagem: "/trajetoria/assego.jpg",
     site: "https://www.assego.com.br/",
     cargo: "Desenvolvedor Full Stack Júnior",
     periodo: "fev/2025 · out/2026",
@@ -332,6 +318,7 @@ export const trajetoria: Trabalho[] = [
   },
   {
     org: "IHGG",
+    imagem: "/trajetoria/ihgg.jpg",
     site: "https://ihgg.org/",
     cargo: "Arquiteto e Desenvolvedor de Software",
     periodo: "out/2025 · jan/2026",
@@ -345,6 +332,7 @@ export const trajetoria: Trabalho[] = [
   },
   {
     org: "Conteúdo Club",
+    imagem: "/projetos/calculadora.png",
     site: "https://conteudoclub.com/",
     cargo: "Desenvolvedor Full Stack",
     periodo: "jun/2023 · jan/2026",

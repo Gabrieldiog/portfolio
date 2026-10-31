@@ -2,7 +2,7 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
-## [0.9.4] — 2026-10-31 — Números corrigidos e Loja Eliane na Trajetória
+## [0.10.0] — 2026-10-31 — Trajetória com retratos e galeria só autoral
 ### Mudado
 - Total de pessoas: 870+ "usam ou trabalham com sistemas que construí ou dos quais fiz parte" (450 cabos eleitorais + 292 clientes da calculadora + 80 BC Energia + 55 ASSEGO).
 - Totem do IHGG passa para o alcance público (21 mil+), junto com a Minha Cola.
@@ -10,7 +10,11 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e
 - Resumo do Contato: "mais de 800 pessoas".
 
 ### Adicionado
-- Trajetória: Loja Eliane Martins (freelancer).
+- Trajetória: Loja Eliane Martins.
+- Trajetória: retrato do site de cada casa (BC Energia, Loja Eliane, ASSEGO, IHGG e a calculadora no Conteúdo Club).
+
+### Removido
+- Calculadora do Creator e Loja Eliane Martins saem da galeria de projetos: são trabalho com cliente e foram para a Trajetória. A galeria fica só com projetos autorais.
 
 ## [0.9.3] — 2026-10-31 — Fontes no projeto
 ### Corrigido
