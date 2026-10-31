@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { LenisProvider } from "@/components/lenis-provider";
@@ -9,11 +8,15 @@ import { SmoothAnchors } from "@/components/smooth-anchors";
 import { ScrollCue } from "@/components/scroll-cue";
 import { contato, perfil, siteUrl } from "@/lib/dados";
 
+// Todas as fontes moram no projeto (src/fonts), nenhuma vem do Google na hora
+// do build: em out/2026 um deploy de produção falhou porque o download das
+// fontes do Google oscilou no meio do build. Space Grotesk e JetBrains Mono são
+// as versões variáveis (licença OFL), recorte latin, que cobre o português.
+
 // Space Grotesk: títulos, nome gigante e números de métrica.
-const display = Space_Grotesk({
+const display = localFont({
   variable: "--fonte-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  src: [{ path: "../fonts/space-grotesk-variable.woff2", weight: "300 700", style: "normal" }],
 });
 
 // Satoshi (Fontshare, self-host): corpo de texto.
@@ -27,10 +30,9 @@ const sans = localFont({
 });
 
 // JetBrains Mono: só em rótulos técnicos pontuais (stack, metadados).
-const mono = JetBrains_Mono({
+const mono = localFont({
   variable: "--fonte-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  src: [{ path: "../fonts/jetbrains-mono-variable.woff2", weight: "100 800", style: "normal" }],
 });
 
 const titulo = `${perfil.nome} · ${perfil.cargo}`;
