@@ -279,10 +279,10 @@ export const trajetoria: Trabalho[] = [
     // internas nem detalhes de infraestrutura da empresa.
     feitos: [
       "Automação de atendimento: consulta de fatura por unidade consumidora integrada ao data warehouse, com o documento gerado sob demanda (aprovada em code review)",
-      "Migração de uma aplicação interna de plataforma low-code para infraestrutura própria, auto-hospedada",
-      "Integração com o CRM corporativo via API (em implantação)",
+      "Migração de aplicações internas de plataforma low-code para infraestrutura própria, auto-hospedada",
+      "Automação do relatório de economia dos clientes: quanto cada um economizou na energia no mês escolhido ou acumulado em 12 meses, gerado em poucos cliques pela equipe",
       "Gestão de acesso privilegiado (PAM) à infraestrutura, em homologação",
-      "Gerador interno de boletos de cobrança (em desenvolvimento)",
+      "Gerador interno de boletos de cobrança",
     ],
     metrica: { valor: 80, sufixo: "+", rotulo: "funcionários usam os sistemas" },
   },
