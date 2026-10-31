@@ -153,6 +153,9 @@ export type SistemaPolitico = {
   descricao: string;
   link?: string; // sem link = sistema interno
   imagem?: string;
+  formato?: "celular" | "tela"; // print de celular (padrão) ou de tela cheia
+  // O número mora no card do sistema que o gerou (e só nele).
+  metrica?: { valor: number; sufixo: string; rotulo: string };
 };
 
 export type FrentePolitica = {
@@ -162,12 +165,6 @@ export type FrentePolitica = {
 };
 
 export const campanhas = {
-  numeros: [
-    { valor: 21, sufixo: " mil+", rotulo: "acessos à Minha Cola" },
-    { valor: 450, sufixo: "+", rotulo: "cabos eleitorais cadastrados" },
-    { valor: 246, sufixo: "", rotulo: "municípios de Goiás alcançados" },
-    { valor: 5570, sufixo: "", rotulo: "municípios mapeados no GPol" },
-  ],
   frentes: [
     {
       titulo: "Captação e relacionamento",
@@ -181,7 +178,8 @@ export const campanhas = {
         },
         {
           nome: "Cadastro de cabos eleitorais",
-          descricao: "Cadastro e organização dos cabos eleitorais da campanha: 450+ inscritos.",
+          descricao: "Cadastro e organização dos cabos eleitorais da campanha.",
+          metrica: { valor: 450, sufixo: "+", rotulo: "cabos eleitorais cadastrados" },
         },
         {
           nome: "CRM da campanha",
@@ -196,9 +194,11 @@ export const campanhas = {
         {
           nome: "GPol",
           descricao:
-            "Inteligência política em tempo real: mapa de votos dos 5.570 municípios, dados do TSE e do Censo e escuta social com IA. Em produção com 40 pessoas em 2 estados.",
+            "Inteligência política em tempo real: mapa de votos, dados do TSE e do Censo e escuta social com IA. Em produção com 40 pessoas em 2 estados.",
+          metrica: { valor: 5570, sufixo: "", rotulo: "municípios mapeados" },
           link: "https://sergio.seg.br/gpol-/",
           imagem: "/projetos/gpol.png",
+          formato: "tela",
         },
       ],
     },
@@ -209,7 +209,8 @@ export const campanhas = {
         {
           nome: "Minha Cola",
           descricao:
-            "O eleitor monta e imprime a cola de votação (4 colinhas por folha). Roda inteira no aparelho: sem login, sem cadastro e sem guardar dado nenhum. 21 mil+ acessos.",
+            "O eleitor monta e imprime a cola de votação (4 colinhas por folha). Roda inteira no aparelho: sem login, sem cadastro e sem guardar dado nenhum.",
+          metrica: { valor: 21, sufixo: " mil+", rotulo: "acessos do público" },
           link: "https://sergio.seg.br/cola/",
           imagem: "/politica/minha-cola.jpg",
         },
@@ -232,13 +233,12 @@ export const campanhas = {
 };
 
 // ── Trajetória profissional ─────────────────────────────────────────────────
-// Dois números de naturezas diferentes, que NÃO se somam:
-// 1) Pessoas que usam ou trabalham com sistemas que o Gabriel construiu ou dos
-//    quais fez parte (usuários com conta ou cadastro): 450 (cabos eleitorais) +
-//    292 (clientes da calculadora, banco de produção em out/2026) + 80 (BC
-//    Energia) + 55 (ASSEGO) = 877 → 870+.
-// 2) Alcance público: acessos de gente de fora a sistemas abertos — Minha Cola
-//    (21.383 no contador em out/2026) + totem do IHGG (200+) → 21 mil+.
+// Pessoas que usam ou trabalham com sistemas que o Gabriel construiu ou dos
+// quais fez parte (usuários com conta ou cadastro): 450 (cabos eleitorais) +
+// 292 (clientes da calculadora, banco de produção em out/2026) + 80 (BC
+// Energia) + 55 (ASSEGO) = 877 → 870+.
+// O alcance público (21 mil+ acessos da Minha Cola, 200+ visitantes do totem)
+// fica no card de cada sistema, não aqui: cada número aparece uma vez só.
 export const alcanceTotal = {
   valor: 870,
   sufixo: "+",
@@ -249,12 +249,6 @@ export const alcanceTotal = {
     "80 na BC Energia",
     "55 na ASSEGO",
   ],
-};
-
-export const alcancePublico = {
-  valor: 21,
-  sufixo: " mil+",
-  rotulo: "acessos do público a sistemas abertos que construí, como a Minha Cola e o totem do IHGG",
 };
 
 export type Trabalho = {
