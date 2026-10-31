@@ -2,6 +2,10 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.9.3] — 2026-10-31 — Fontes no projeto
+### Corrigido
+- O deploy de produção da 0.9.2 falhou ao baixar as fontes do Google durante o build. Space Grotesk e JetBrains Mono agora ficam no próprio projeto (`src/fonts`, licença OFL), e o build não depende mais do Google Fonts.
+
 ## [0.9.2] — 2026-10-31 — Alcance com origem
 ### Mudado
 - Trajetória: "1.100+ pessoas usam ou trabalham com sistemas que construí" (inclui os 450 cabos eleitorais), com a composição do número logo abaixo.
