@@ -2,6 +2,14 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.11.0] — 2026-10-31 — Campanhas em cards grandes e sem números repetidos
+### Mudado
+- "Sistemas para política": cada sistema vira um card grande, no tamanho dos projetos, com o print num aparelho em destaque; sistemas internos ganham um painel no lugar do print.
+- Cada número aparece uma vez só, no card do sistema que o gerou: 450+ no cadastro de cabos eleitorais, 5.570 no GPol, 21 mil+ na Minha Cola.
+
+### Removido
+- A faixa de 4 números do topo de Campanhas e o bloco "21 mil+" da Trajetória (eram repetição).
+
 ## [0.10.1] — 2026-10-31 — BC Energia atualizada
 ### Mudado
 - Grupo BC Energia: migração de aplicações internas (no plural), novo item da automação do relatório de economia dos clientes, gerador de boletos sem "(em desenvolvimento)" e sem o item da integração com o CRM.
