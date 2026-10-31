@@ -250,13 +250,30 @@ export const campanhas = {
 };
 
 // ── Trajetória profissional ─────────────────────────────────────────────────
-// Soma honesta de quem usa o que construí: 80+ (BC Energia) + 55 (gestão
-// ASSEGO) + 40 (GPol) + 10 (clube e pousada) + 292 (clientes da calculadora,
-// banco de produção em out/2026) + 200+ (totem) = 677 → 670+.
+// Dois números de naturezas diferentes, que NÃO se somam:
+// 1) Pessoas que usam ou trabalham com os sistemas (usuários com conta ou
+//    cadastro): 450 (cabos eleitorais) + 292 (clientes da calculadora, banco de
+//    produção em out/2026) + 200 (totem) + 105 (ASSEGO: gestão 55 + GPol 40 +
+//    clube e pousada 10) + 80 (BC Energia) = 1.127 → 1.100+.
+// 2) Alcance público: acessos de gente de fora às páginas abertas (contador da
+//    Minha Cola: 21.383 em out/2026) → 21 mil+.
 export const alcanceTotal = {
-  valor: 670,
+  valor: 1100,
   sufixo: "+",
-  rotulo: "pessoas usam ou já usaram sistemas que construí",
+  rotulo: "pessoas usam ou trabalham com sistemas que construí",
+  composicao: [
+    "450 cabos eleitorais",
+    "292 clientes da calculadora",
+    "200 visitantes do totem",
+    "105 na ASSEGO",
+    "80 na BC Energia",
+  ],
+};
+
+export const alcancePublico = {
+  valor: 21,
+  sufixo: " mil+",
+  rotulo: "acessos do público às páginas abertas que construí, como a Minha Cola",
 };
 
 export type Trabalho = {

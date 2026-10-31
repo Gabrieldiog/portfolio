@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
-import { trajetoria, alcanceTotal, type Trabalho } from "@/lib/dados";
+import { trajetoria, alcanceTotal, alcancePublico, type Trabalho } from "@/lib/dados";
 import { useTilt } from "@/hooks/use-tilt";
 import { Contador } from "@/components/contador";
 
@@ -59,6 +59,26 @@ export function Trajetoria() {
               <Contador valor={alcanceTotal.valor} sufixo={alcanceTotal.sufixo} />
             </p>
             <p className="mt-3 text-sm leading-relaxed text-text">{alcanceTotal.rotulo}</p>
+            {/* De onde vem o número: quem lê vê a soma, não um número solto. */}
+            <ul aria-label="Composição" className="mt-4 flex flex-wrap gap-1.5">
+              {alcanceTotal.composicao.map((c) => (
+                <li
+                  key={c}
+                  className="rounded-full border border-border bg-surface-2 px-2.5 py-1 font-mono text-[0.65rem] text-muted"
+                >
+                  {c}
+                </li>
+              ))}
+            </ul>
+
+            {/* Alcance público: outra natureza (acessos, não usuários), então
+                fica separado e não entra na soma de cima. */}
+            <div className="mt-6 border-t border-border pt-5">
+              <p className="font-display text-4xl font-bold leading-none text-accent tnum">
+                <Contador valor={alcancePublico.valor} sufixo={alcancePublico.sufixo} />
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{alcancePublico.rotulo}</p>
+            </div>
           </div>
 
           <p className="traj-reveal mt-6 max-w-xs text-lg font-medium leading-snug text-text">
