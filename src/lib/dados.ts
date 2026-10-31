@@ -251,29 +251,28 @@ export const campanhas = {
 
 // ── Trajetória profissional ─────────────────────────────────────────────────
 // Dois números de naturezas diferentes, que NÃO se somam:
-// 1) Pessoas que usam ou trabalham com os sistemas (usuários com conta ou
-//    cadastro): 450 (cabos eleitorais) + 292 (clientes da calculadora, banco de
-//    produção em out/2026) + 200 (totem) + 105 (ASSEGO: gestão 55 + GPol 40 +
-//    clube e pousada 10) + 80 (BC Energia) = 1.127 → 1.100+.
-// 2) Alcance público: acessos de gente de fora às páginas abertas (contador da
-//    Minha Cola: 21.383 em out/2026) → 21 mil+.
+// 1) Pessoas que usam ou trabalham com sistemas que o Gabriel construiu ou dos
+//    quais fez parte (usuários com conta ou cadastro): 450 (cabos eleitorais) +
+//    292 (clientes da calculadora, banco de produção em out/2026) + 80 (BC
+//    Energia) + 55 (ASSEGO) = 877 → 870+.
+// 2) Alcance público: acessos de gente de fora a sistemas abertos — Minha Cola
+//    (21.383 no contador em out/2026) + totem do IHGG (200+) → 21 mil+.
 export const alcanceTotal = {
-  valor: 1100,
+  valor: 870,
   sufixo: "+",
-  rotulo: "pessoas usam ou trabalham com sistemas que construí",
+  rotulo: "pessoas usam ou trabalham com sistemas que construí ou dos quais fiz parte",
   composicao: [
     "450 cabos eleitorais",
     "292 clientes da calculadora",
-    "200 visitantes do totem",
-    "105 na ASSEGO",
     "80 na BC Energia",
+    "55 na ASSEGO",
   ],
 };
 
 export const alcancePublico = {
   valor: 21,
   sufixo: " mil+",
-  rotulo: "acessos do público às páginas abertas que construí, como a Minha Cola",
+  rotulo: "acessos do público a sistemas abertos que construí, como a Minha Cola e o totem do IHGG",
 };
 
 export type Trabalho = {
@@ -302,6 +301,17 @@ export const trajetoria: Trabalho[] = [
       "Gerador interno de boletos de cobrança (em desenvolvimento)",
     ],
     metrica: { valor: 80, sufixo: "+", rotulo: "funcionários usam os sistemas" },
+  },
+  {
+    org: "Loja Eliane Martins",
+    site: "https://elianemartins.shop",
+    cargo: "Desenvolvedor Full Stack · freelancer",
+    periodo: "2026",
+    feitos: [
+      "Loja virtual de materiais pedagógicos, do catálogo ao painel administrativo, no ar e com clientes comprando",
+      "Checkout com PIX, boleto e cartão, webhooks de pagamento com reconciliação de pedidos e fila de reembolso",
+      "482 testes automatizados e deploy contínuo com verificação de saúde a cada publicação",
+    ],
   },
   {
     org: "ASSEGO",
@@ -345,7 +355,7 @@ export const trajetoria: Trabalho[] = [
     metrica: { valor: 292, sufixo: "", rotulo: "clientes cadastrados na calculadora" },
   },
   {
-    org: "Fazenda Nova · GO (freelancer)",
+    org: "Fazenda Nova · GO",
     cargo: "Desenvolvedor Full Stack",
     periodo: "mar/2023 · abr/2024",
     feitos: [

@@ -2,6 +2,16 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.9.4] — 2026-10-31 — Números corrigidos e Loja Eliane na Trajetória
+### Mudado
+- Total de pessoas: 870+ "usam ou trabalham com sistemas que construí ou dos quais fiz parte" (450 cabos eleitorais + 292 clientes da calculadora + 80 BC Energia + 55 ASSEGO).
+- Totem do IHGG passa para o alcance público (21 mil+), junto com a Minha Cola.
+- Fazenda Nova sem "(freelancer)".
+- Resumo do Contato: "mais de 800 pessoas".
+
+### Adicionado
+- Trajetória: Loja Eliane Martins (freelancer).
+
 ## [0.9.3] — 2026-10-31 — Fontes no projeto
 ### Corrigido
 - O deploy de produção da 0.9.2 falhou ao baixar as fontes do Google durante o build. Space Grotesk e JetBrains Mono agora ficam no próprio projeto (`src/fonts`, licença OFL), e o build não depende mais do Google Fonts.
