@@ -234,18 +234,19 @@ export const campanhas = {
 
 // ── Trajetória profissional ─────────────────────────────────────────────────
 // Pessoas que usam ou trabalham com sistemas que o Gabriel construiu ou dos
-// quais fez parte (usuários com conta ou cadastro): 450 (cabos eleitorais) +
-// 292 (clientes da calculadora, banco de produção em out/2026) + 80 (BC
-// Energia) + 55 (ASSEGO) = 877 → 870+.
-// O alcance público (21 mil+ acessos da Minha Cola, 200+ visitantes do totem)
-// fica no card de cada sistema, não aqui: cada número aparece uma vez só.
+// quais fez parte: 450 (cabos eleitorais) + 292 (clientes da calculadora,
+// banco de produção em out/2026) + 200 (visitantes que usaram o totem do
+// IHGG) + 80 (BC Energia) + 55 (ASSEGO) = 1.077 → 1.070+.
+// Os 21 mil+ acessos da Minha Cola são alcance público (acessos, não pessoas)
+// e ficam só no card dela, em Campanhas.
 export const alcanceTotal = {
-  valor: 870,
+  valor: 1070,
   sufixo: "+",
   rotulo: "pessoas usam ou trabalham com sistemas que construí ou dos quais fiz parte",
   composicao: [
     "450 cabos eleitorais",
     "292 clientes da calculadora",
+    "200 visitantes do totem",
     "80 na BC Energia",
     "55 na ASSEGO",
   ],

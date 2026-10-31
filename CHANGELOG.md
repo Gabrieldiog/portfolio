@@ -2,6 +2,11 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.11.1] — 2026-10-31 — Totem de volta na contagem
+### Mudado
+- Os 200 visitantes que usaram o totem do IHGG voltam para a contagem de pessoas: 1.070+ (450 + 292 + 200 + 80 + 55 = 1.077).
+- Resumo do Contato: "mais de mil pessoas".
+
 ## [0.11.0] — 2026-10-31 — Campanhas em cards grandes e sem números repetidos
 ### Mudado
 - "Sistemas para política": cada sistema vira um card grande, no tamanho dos projetos, com o print num aparelho em destaque; sistemas internos ganham um painel no lugar do print.
