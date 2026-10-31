@@ -33,7 +33,7 @@ export function Projetos() {
             </h2>
           </div>
           <p data-reveal className="max-w-sm text-lg font-medium leading-snug text-text md:text-xl">
-            Do sistema profissional aos projetos autorais:{" "}
+            Projetos autorais, do primeiro commit ao deploy:{" "}
             <span className="text-accent">tudo aqui está no ar.</span> É só
             clicar e usar.
           </p>
