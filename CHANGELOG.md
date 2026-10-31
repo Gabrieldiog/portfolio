@@ -2,6 +2,11 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.11.2] — 2026-10-31 — Retratos clicáveis e ícone próprio
+### Adicionado
+- O retrato de cada casa na Trajetória leva ao site dela em nova aba (no Conteúdo Club, à calculadora).
+- Ícone novo: "GD" dourado em letra de marcador (Permanent Marker, licença OFL) sobre o fundo escuro, em todos os formatos: `favicon.ico` (16/32/48, para o Safari, que mostrava o triângulo padrão da Vercel), `icon.png` (512) e `apple-icon.png`.
+
 ## [0.11.1] — 2026-10-31 — Totem de volta na contagem
 ### Mudado
 - Os 200 visitantes que usaram o totem do IHGG voltam para a contagem de pessoas: 1.070+ (450 + 292 + 200 + 80 + 55 = 1.077).

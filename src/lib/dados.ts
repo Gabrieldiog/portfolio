@@ -261,6 +261,7 @@ export type Trabalho = {
   nota?: string;
   metrica?: { valor: number; sufixo: string; rotulo: string };
   imagem?: string; // retrato do site (ou do sistema público) da casa
+  imagemLink?: string; // pra onde o retrato leva (padrão: o site da casa)
 };
 
 export const trajetoria: Trabalho[] = [
@@ -328,6 +329,7 @@ export const trajetoria: Trabalho[] = [
   {
     org: "Conteúdo Club",
     imagem: "/projetos/calculadora.png",
+    imagemLink: "https://calculadoradocreator.com",
     site: "https://conteudoclub.com/",
     cargo: "Desenvolvedor Full Stack",
     periodo: "jun/2023 · jan/2026",

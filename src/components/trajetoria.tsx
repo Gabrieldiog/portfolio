@@ -102,17 +102,14 @@ function CardTrabalho({ trabalho }: { trabalho: Trabalho }) {
       ref={tiltRef}
       className="traj-card group rounded-3xl border border-border bg-surface p-7 transition-colors hover:border-accent/50 md:p-9"
     >
-      {/* Retrato do site da casa (ou do sistema público que construí lá). */}
+      {/* Retrato do site da casa (ou do sistema público que construí lá).
+          Clicável: leva pro site (ou pro sistema que o retrato mostra). */}
       {trabalho.imagem && (
-        <div className="relative -mx-7 -mt-7 mb-6 aspect-[16/7] overflow-hidden rounded-t-3xl border-b border-border bg-surface-2 md:-mx-9 md:-mt-9 md:mb-7">
-          <Image
-            src={trabalho.imagem}
-            alt={`Site ${trabalho.org}`}
-            fill
-            sizes="(max-width: 767px) 100vw, 760px"
-            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-          />
-        </div>
+        <RetratoSite
+          imagem={trabalho.imagem}
+          org={trabalho.org}
+          href={trabalho.imagemLink ?? trabalho.site}
+        />
       )}
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -163,5 +160,31 @@ function CardTrabalho({ trabalho }: { trabalho: Trabalho }) {
         </p>
       )}
     </article>
+  );
+}
+
+function RetratoSite({ imagem, org, href }: { imagem: string; org: string; href?: string }) {
+  const classe =
+    "relative -mx-7 -mt-7 mb-6 block aspect-[16/7] overflow-hidden rounded-t-3xl border-b border-border bg-surface-2 md:-mx-9 md:-mt-9 md:mb-7";
+  const foto = (
+    <Image
+      src={imagem}
+      alt={`Site ${org}`}
+      fill
+      sizes="(max-width: 767px) 100vw, 760px"
+      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+    />
+  );
+  if (!href) return <div className={classe}>{foto}</div>;
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Abrir o site ${org} em nova aba`}
+      className={`${classe} focus-visible:outline-offset-[-4px]`}
+    >
+      {foto}
+    </a>
   );
 }
