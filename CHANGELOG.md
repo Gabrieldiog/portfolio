@@ -2,6 +2,12 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.9.1] — 2026-10-31 — Números atualizados
+### Mudado
+- Calculadora do Creator: 292 clientes cadastrados em produção (antes "100+").
+- Grupo BC Energia: gerador interno de boletos de cobrança (em desenvolvimento).
+- Alcance total: 670+ pessoas; resumo do Contato: "mais de 600 pessoas".
+
 ## [0.9.0] — 2026-10-12 — Sistemas para política
 ### Adicionado
 - Seção "Sistemas para política" (`#campanhas`) e item "Campanhas" no menu: números (21 mil+ acessos à Minha Cola, 450+ cabos eleitorais, 246 municípios de Goiás, 5.570 municípios no GPol) e três frentes — captação e relacionamento, inteligência eleitoral, mobilização e agenda pública — com prints dos sistemas.
