@@ -2,6 +2,12 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.9.2] — 2026-10-31 — Alcance com origem
+### Mudado
+- Trajetória: "1.100+ pessoas usam ou trabalham com sistemas que construí" (inclui os 450 cabos eleitorais), com a composição do número logo abaixo.
+- Alcance público separado no mesmo card: 21 mil+ acessos às páginas abertas (Minha Cola). Os dois números não se somam.
+- Resumo do Contato: "mais de mil pessoas".
+
 ## [0.9.1] — 2026-10-31 — Números atualizados
 ### Mudado
 - Calculadora do Creator: 292 clientes cadastrados em produção (antes "100+").
