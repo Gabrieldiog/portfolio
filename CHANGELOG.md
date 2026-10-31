@@ -2,6 +2,10 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.10.1] — 2026-10-31 — BC Energia atualizada
+### Mudado
+- Grupo BC Energia: migração de aplicações internas (no plural), novo item da automação do relatório de economia dos clientes, gerador de boletos sem "(em desenvolvimento)" e sem o item da integração com o CRM.
+
 ## [0.10.0] — 2026-10-31 — Trajetória com retratos e galeria só autoral
 ### Mudado
 - Total de pessoas: 870+ "usam ou trabalham com sistemas que construí ou dos quais fiz parte" (450 cabos eleitorais + 292 clientes da calculadora + 80 BC Energia + 55 ASSEGO).
