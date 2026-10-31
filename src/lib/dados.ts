@@ -115,7 +115,7 @@ export const projetos: Projeto[] = [
     id: "calculadora",
     nome: "Calculadora do Creator",
     descricao:
-      "A calculadora que ajuda criadores de conteúdo a precificar e planejar serviços, feita com o Conteúdo Club. Mais de 100 criadores usando.",
+      "A calculadora que ajuda criadores de conteúdo a precificar e planejar serviços, feita com o Conteúdo Club. 292 clientes cadastrados em produção.",
     stack: ["Vue.js", "Node.js", "SQL"],
     link: "https://calculadoradocreator.com",
     imagem: "/projetos/calculadora.png",
@@ -251,10 +251,10 @@ export const campanhas = {
 
 // ── Trajetória profissional ─────────────────────────────────────────────────
 // Soma honesta de quem usa o que construí: 80+ (BC Energia) + 55 (gestão
-// ASSEGO) + 40 (GPol) + 10 (clube e pousada) + 100+ (calculadora) + 200+
-// (totem) = 485 → 480+.
+// ASSEGO) + 40 (GPol) + 10 (clube e pousada) + 292 (clientes da calculadora,
+// banco de produção em out/2026) + 200+ (totem) = 677 → 670+.
 export const alcanceTotal = {
-  valor: 480,
+  valor: 670,
   sufixo: "+",
   rotulo: "pessoas usam ou já usaram sistemas que construí",
 };
@@ -282,6 +282,7 @@ export const trajetoria: Trabalho[] = [
       "Migração de uma aplicação interna de plataforma low-code para infraestrutura própria, auto-hospedada",
       "Integração com o CRM corporativo via API (em implantação)",
       "Gestão de acesso privilegiado (PAM) à infraestrutura, em homologação",
+      "Gerador interno de boletos de cobrança (em desenvolvimento)",
     ],
     metrica: { valor: 80, sufixo: "+", rotulo: "funcionários usam os sistemas" },
   },
@@ -321,10 +322,10 @@ export const trajetoria: Trabalho[] = [
     cargo: "Desenvolvedor Full Stack",
     periodo: "jun/2023 · jan/2026",
     feitos: [
-      "Calculadora do Creator: precificação e planejamento de serviços pra 100+ criadores de conteúdo",
+      "Calculadora do Creator: precificação e planejamento de serviços, com 292 clientes cadastrados em produção",
       "Participação ativa nas decisões técnicas e de produto",
     ],
-    metrica: { valor: 100, sufixo: "+", rotulo: "criadores usando a calculadora" },
+    metrica: { valor: 292, sufixo: "", rotulo: "clientes cadastrados na calculadora" },
   },
   {
     org: "Fazenda Nova · GO (freelancer)",
